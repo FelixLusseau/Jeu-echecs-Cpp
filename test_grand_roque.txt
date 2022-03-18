@@ -1,0 +1,11 @@
+d2d4
+d7d5
+d1d3
+d8d6
+c1e3
+c8e6
+b1a3
+b8a6
+o-o-o
+o-o-o
+/quit

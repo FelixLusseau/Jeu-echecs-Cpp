@@ -1,0 +1,33 @@
+CC=g++
+CFLAGS= -Wall -Wextra -Werror -g #-DDEBUG -std=c++11
+
+EXE=echecs
+
+SRC=echecs.cpp jeu.cpp echiquier.cpp square.cpp piece.cpp 
+OBJ=echecs.o  jeu.o echiquier.o square.o piece.o  
+
+all: $(EXE)
+
+$(EXE): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ)  -o $@
+
+SUFFIXES:.cpp .o
+
+echecs.o : echecs.cpp piece.cpp square.cpp jeu.cpp echiquier.cpp 
+	$(CC) $(CFLAGS) -c $<
+
+echiquier.o : echiquier.cpp piece.h square.h
+	$(CC) $(CFLAGS) -c $<
+
+jeu.o: jeu.cpp echiquier.h piece.h square.h
+	$(CC) $(CFLAGS) -c $<
+
+piece.o: piece.cpp piece.h square.h echiquier.h
+	$(CC) $(CFLAGS) -c $<
+
+square.o : square.cpp square.h
+	$(CC) $(CFLAGS) -c $<
+
+
+clean:
+	rm -rf $(EXE) *.o *.dSYM *~ 

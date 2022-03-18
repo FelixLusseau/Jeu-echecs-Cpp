@@ -1,0 +1,9 @@
+g1h3
+g8h6
+e2e4
+e7e5
+f1d3
+f8d6
+o-o
+o-o
+/quit

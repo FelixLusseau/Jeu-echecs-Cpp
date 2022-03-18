@@ -1,0 +1,9 @@
+a2a4
+c7c5
+a4a5
+b7b5
+a5b6
+c5c4
+d2d4
+c4d3
+/quit

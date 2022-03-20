@@ -163,9 +163,12 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
     if (get_piece(xorig, yorig)->get_type() == "Cavalier" ||
         get_piece(xorig, yorig)->get_type() == "Roi")
         return true;
+
     if (xorig - xdest == 0) {
         (yorig < ydest) ? dy = 1 : dy = -1;
         for (int k(yorig + dy); k != ydest; k += dy) {
+            /* cout << "test " << orig.to_string() << " " << dest.to_string()
+                 << " " << xorig << " " << xdest << " " << k << endl; */
             if (get_piece(xorig, k)) {
                 if (!test_echec)
                     cout << endl
@@ -180,6 +183,7 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
     } else if (yorig - ydest == 0) {
         (xorig < xdest) ? dx = 1 : dx = -1;
         for (int k(xorig + dx); k != xdest; k += dx) {
+            /* cout << "test " << xorig << " " << xdest << " " << k << endl; */
             if (get_piece(k, yorig)) {
                 if (!test_echec)
                     cout << endl
@@ -197,6 +201,8 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
         (yorig < ydest) ? dy = 1 : dy = -1;
         for (int k(xorig + dx); k != xdest; k += dx) {
             for (int l(yorig + dy); l != ydest; l += dy) {
+                /* cout << "test " << xorig << " " << xdest << " " << k << endl;
+                 */
                 if (get_piece(k, l)) {
                     if (!test_echec)
                         cout << endl
@@ -270,8 +276,8 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
                                                     roi_b_pos.to_string())
                  << " pièce n : " << piecen_i_pos.to_string()
                  << " roi b : " << roi_b_pos.to_string()
-                 << piecesb[4]->affiche() << endl; */
-            /* cout << pionsn[i]->affiche()
+                 << piecesb[4]->affiche() << endl;
+            cout << pionsn[i]->affiche()
                  << pionsn[i]->est_mouvement_legal(pionn_i_pos.to_string(),
                                                    roi_b_pos.to_string())
                  << " pion n " << i << " : " << pionn_i_pos.to_string()
@@ -335,7 +341,7 @@ bool Echiquier::mat(Couleur couleur) {
                                  ? get_piece(square)->get_couleur()
                                  : 2)
                          << couleur << endl; */
-                    cout << str << pionsn[i]->affiche()
+                    /* cout << str << pionsn[i]->affiche()
                          << !pionsn[i]->get_prise()
                          << pionsn[i]->est_mouvement_legal(
                                 pionn_i_pos.to_string(), str)
@@ -345,20 +351,22 @@ bool Echiquier::mat(Couleur couleur) {
                          << (get_piece(square)
                                  ? get_piece(square)->get_couleur()
                                  : 2)
-                         << couleur << endl;
-                    if (!piecesn[i]->get_prise() &&
-                        piecesn[i]->est_mouvement_legal(
-                            piecen_i_pos.to_string(), str) &&
-                        verif_saut(piecen_i_pos, square, true) &&
-                        ((get_piece(square) &&
-                          (get_piece(square)->get_couleur() == couleur)) ||
-                         !get_piece(square))) {
+                         << couleur << endl; */
+                    if (piecen_i_pos.to_string() == square.to_string())
+                        continue;
+                    else if (!piecesn[i]->get_prise() &&
+                             piecesn[i]->est_mouvement_legal(
+                                 piecen_i_pos.to_string(), str) &&
+                             verif_saut(piecen_i_pos, square, true) &&
+                             ((get_piece(square) &&
+                               (get_piece(square)->get_couleur() == Blanc)) ||
+                              !get_piece(square))) {
                         piecesn[i]->set_pos(square);
                         if (get_piece(square)) {
                             get_piece(square)->set_prise(true);
                         }
                         // cout << piecesn[i]->affiche() << str << endl;
-                        if (!echec(couleur, true)) {
+                        if (!echec(Blanc, true)) {
                             piecesn[i]->set_pos(piecen_i_pos);
                             if (get_piece(square)) {
                                 get_piece(square)->set_prise(false);
@@ -375,15 +383,14 @@ bool Echiquier::mat(Couleur couleur) {
                                    piecen_i_pos.to_string(), str) &&
                                verif_saut(pionn_i_pos, square, true) &&
                                ((get_piece(square) &&
-                                 (get_piece(square)->get_couleur() ==
-                                  couleur)) ||
+                                 (get_piece(square)->get_couleur() == Blanc)) ||
                                 !get_piece(square))) {
                         pionsn[i]->set_pos(square);
                         if (get_piece(square)) {
                             get_piece(square)->set_prise(true);
                         }
                         // cout << pionsn[i]->affiche() << str << endl;
-                        if (!echec(couleur, true)) {
+                        if (!echec(Blanc, true)) {
                             pionsn[i]->set_pos(pionn_i_pos);
                             if (get_piece(square)) {
                                 get_piece(square)->set_prise(false);
@@ -409,31 +416,33 @@ bool Echiquier::mat(Couleur couleur) {
                 for (char col('a'); col <= 'h'; col++) {
                     string str(col + to_string(row));
                     Square square(str);
-                    cout << str << piecesb[i]->affiche()
-                         << !piecesb[i]->get_prise()
-                         << piecesb[i]->est_mouvement_legal(
-                                pieceb_i_pos.to_string(), str)
-                         << verif_saut(pieceb_i_pos, square, true)
-                         << "pièce dest ? " << get_piece(square)
-                         << " couleur : "
-                         << (get_piece(square)
-                                 ? get_piece(square)->get_couleur()
-                                 : 2)
-                         << couleur << endl;
-                    if (!piecesb[i]->get_prise() &&
-                        piecesb[i]->est_mouvement_legal(
-                            pieceb_i_pos.to_string(), str) &&
-                        verif_saut(pieceb_i_pos, square, true) &&
-                        ((get_piece(square) &&
-                          (get_piece(square)->get_couleur() == couleur)) ||
-                         !get_piece(square))) {
+                    /*  cout << str << piecesb[i]->affiche()
+                          << !piecesb[i]->get_prise()
+                          << piecesb[i]->est_mouvement_legal(
+                                 pieceb_i_pos.to_string(), str)
+                          << verif_saut(pieceb_i_pos, square, true)
+                          << "pièce dest ? " << get_piece(square)
+                          << " couleur : "
+                          << (get_piece(square)
+                                  ? get_piece(square)->get_couleur()
+                                  : 2)
+                          << couleur << endl; */
+                    if (pieceb_i_pos.to_string() == square.to_string())
+                        continue;
+                    else if (!piecesb[i]->get_prise() &&
+                             piecesb[i]->est_mouvement_legal(
+                                 pieceb_i_pos.to_string(), str) &&
+                             verif_saut(pieceb_i_pos, square, true) &&
+                             ((get_piece(square) &&
+                               (get_piece(square)->get_couleur() == Noir)) ||
+                              !get_piece(square))) {
                         piecesb[i]->set_pos(square);
                         if (get_piece(square)) {
                             get_piece(square)->set_prise(true);
                         }
                         // cout << "ss " << !echec(couleur, false) << endl;
                         //  cout << piecesb[i]->affiche() << str << endl;
-                        if (!echec(couleur, true)) {
+                        if (!echec(Noir, true)) {
                             piecesb[i]->set_pos(pieceb_i_pos);
                             if (get_piece(square)) {
                                 get_piece(square)->set_prise(false);
@@ -449,15 +458,14 @@ bool Echiquier::mat(Couleur couleur) {
                                    pieceb_i_pos.to_string(), str) &&
                                verif_saut(pionb_i_pos, square, true) &&
                                ((get_piece(square) &&
-                                 (get_piece(square)->get_couleur() ==
-                                  couleur)) ||
+                                 (get_piece(square)->get_couleur() == Noir)) ||
                                 !get_piece(square))) {
                         pionsb[i]->set_pos(square);
                         if (get_piece(square)) {
                             get_piece(square)->set_prise(true);
                         }
                         // cout << pionsb[i]->affiche() << str << endl;
-                        if (!echec(couleur, true)) {
+                        if (!echec(Noir, true)) {
                             pionsb[i]->set_pos(pionb_i_pos);
                             if (get_piece(square)) {
                                 get_piece(square)->set_prise(false);
@@ -479,26 +487,69 @@ bool Echiquier::mat(Couleur couleur) {
 }
 
 void Echiquier::affiche() const {
-    string space5 = string(5, ' ');
+    string space5 = string(7, ' ');
     cout << endl;
-    cout << "     a     b     c     d     e     f     g     h    " << endl;
-    cout << "  +-----+-----+-----+-----+-----+-----+-----+-----+" << endl;
+    cout << "     a      b      c      d      e      f      g      h     "
+         << endl
+         << endl;
+    // cout << "     a     b     c     d     e     f     g     h    " << endl;
+    //  cout << "  +-----+-----+-----+-----+-----+-----+-----+-----+" << endl;
     for (int i(NBCOL - 1); i >= 0; i--) {
-        cout << i + 1 << " "; // numérotation ligne dans affichage
+        cout << "   ";
         for (int j(0); j < NBCOL; j++) {
-            cout << "|";
-            if (echiquier[i][j]) {
-                cout << "\u0020\u0020"; // U+0020 est un esapce utf-8 taille
-                                        // police
-                cout << echiquier[i][j]->affiche();
-                cout << "\u0020"
-                     << " ";
-            } else
-                cout << space5; // 2 ascii spaces
+            // cout << "|";
+            if (i % 2 != j % 2) {
+                cout << "\033[48;2;129;137;137m" << space5
+                     << "\033[0m"; // 2 ascii spaces
+            } else {
+                cout << "\033[48;2;88;41;0m" << space5
+                     << "\033[0m"; // 2 ascii spaces
+            }
         }
-        cout << "|\n  +-----+-----+-----+-----+-----+-----+-----+-----+";
+        cout << endl << i + 1 << "  "; // numérotation ligne dans affichage
+        for (int j(0); j < NBCOL; j++) {
+            // cout << "|";
+            if (i % 2 != j % 2) {
+                if (echiquier[i][j]) {
+                    cout << "\033[48;2;129;137;137m"
+                         << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
+                                                  // taille police
+                    cout << echiquier[i][j]->affiche();
+                    cout << "\u0020\u0020"
+                         << " "
+                         << "\033[0m";
+                } else
+                    cout << "\033[48;2;129;137;137m" << space5
+                         << "\033[0m"; // 2 ascii spaces
+            } else {
+                if (echiquier[i][j]) {
+                    cout << "\033[48;2;88;41;0m"
+                         << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
+                                                  // taille police
+                    cout << echiquier[i][j]->affiche();
+                    cout << "\u0020\u0020"
+                         << " "
+                         << "\033[0m";
+                } else
+                    cout << "\033[48;2;88;41;0m" << space5
+                         << "\033[0m"; // 2 ascii spaces
+            }
+        }
+        cout << endl << "   ";
+        for (int j(0); j < NBCOL; j++) {
+            // cout << "|";
+            if (i % 2 != j % 2) {
+                cout << "\033[48;2;129;137;137m" << space5
+                     << "\033[0m"; // 2 ascii spaces
+            } else {
+                cout << "\033[48;2;88;41;0m" << space5
+                     << "\033[0m"; // 2 ascii spaces
+            }
+        }
+        // cout << "|\n  +-----+-----+-----+-----+-----+-----+-----+-----+";
         cout << endl;
     }
+    cout << endl;
 }
 
 string Echiquier::pgn_piece_name(string name, bool view_pawn,

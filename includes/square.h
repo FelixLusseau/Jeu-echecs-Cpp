@@ -9,7 +9,6 @@ class Square {
   private:
     int x;
     int y;
-    // string str;
 
   public:
     Square(string entree);

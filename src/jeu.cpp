@@ -55,8 +55,7 @@ bool Jeu::deplace(Couleur couleur, string str_orig, string str_dest,
         }
 
         if (echiquier.get_piece(dest) == nullptr) {
-            if ((echiquier.get_piece(orig)->affiche() == "\u2659" ||
-                 echiquier.get_piece(orig)->affiche() == "\u265F") &&
+            if (echiquier.get_piece(orig)->get_type() == "Pion" &&
                 (orig.get_colonne() - dest.get_colonne() == 1 ||
                  orig.get_colonne() - dest.get_colonne() == -1)) {
                 string str_cp_orig = coup_prec.substr(0, 2);
@@ -101,19 +100,20 @@ bool Jeu::deplace(Couleur couleur, string str_orig, string str_dest,
                 return false;
             };
 
-            if (echiquier.get_piece(dest)->affiche() == "\u2659" &&
+            if (echiquier.get_piece(dest)->get_type() == "Pion" &&
+                echiquier.get_piece(dest)->get_couleur() == Blanc &&
                 dest.get_ligne() == 7) {
                 if (!echiquier.promotion(Blanc, dest))
                     return false;
-            } else if (echiquier.get_piece(dest)->affiche() == "\u265F" &&
+            } else if (echiquier.get_piece(dest)->get_type() == "Pion" &&
+                       echiquier.get_piece(dest)->get_couleur() == Noir &&
                        dest.get_ligne() == 0) {
                 if (!echiquier.promotion(Noir, dest))
                     return false;
             }
             return true;
         } else if (echiquier.get_piece(dest)->get_couleur() == couleur) {
-            if ((echiquier.get_piece(orig)->affiche() == "\u2659" ||
-                 echiquier.get_piece(orig)->affiche() == "\u265F") &&
+            if (echiquier.get_piece(orig)->get_type() == "Pion" &&
                 (orig.get_colonne() - dest.get_colonne() == 1 ||
                  orig.get_colonne() - dest.get_colonne() == -1)) {
                 cout << endl
@@ -130,8 +130,7 @@ bool Jeu::deplace(Couleur couleur, string str_orig, string str_dest,
                  << ANSI_COLOR_RESET << endl;
             return false;
         } else {
-            if ((echiquier.get_piece(orig)->affiche() == "\u2659" ||
-                 echiquier.get_piece(orig)->affiche() == "\u265F") &&
+            if (echiquier.get_piece(orig)->get_type() == "Pion" &&
                 orig.get_colonne() - dest.get_colonne() == 0) {
                 cout << endl
                      << ANSI_COLOR_RED
@@ -150,11 +149,13 @@ bool Jeu::deplace(Couleur couleur, string str_orig, string str_dest,
                  << ANSI_COLOR_GREEN << "Vous avez pris une pièce ! "
                  << ANSI_COLOR_RESET << endl;
 
-            if (echiquier.get_piece(dest)->affiche() == "\u2659" &&
+            if (echiquier.get_piece(dest)->get_type() == "Pion" &&
+                echiquier.get_piece(dest)->get_couleur() == Blanc &&
                 dest.get_ligne() == 7) {
                 if (!echiquier.promotion(Blanc, dest))
                     return false;
-            } else if (echiquier.get_piece(dest)->affiche() == "\u265F" &&
+            } else if (echiquier.get_piece(dest)->get_type() == "Pion" &&
+                       echiquier.get_piece(dest)->get_couleur() == Noir &&
                        dest.get_ligne() == 0) {
                 if (!echiquier.promotion(Noir, dest))
                     return false;

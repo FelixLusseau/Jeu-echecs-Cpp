@@ -10,14 +10,14 @@ Echiquier::Echiquier() /* : bpromues(0), npromues(0) */ {
     }
 
     // Constructeur (Couleur,nom_affiché, case)
-    piecesb[0] = new Tour(Blanc, "\u2656", Square(0, 0));
-    piecesb[1] = new Cavalier(Blanc, "\u2658", Square(0, 1));
-    piecesb[2] = new Fou(Blanc, "\u2657", Square(0, 2));
-    piecesb[3] = new Dame(Blanc, "\u2655", Square(0, 3));
-    piecesb[4] = new Roi(Blanc, "\u2654", Square(0, 4));
-    piecesb[5] = new Fou(Blanc, "\u2657", Square(0, 5));
-    piecesb[6] = new Cavalier(Blanc, "\u2658", Square(0, 6));
-    piecesb[7] = new Tour(Blanc, "\u2656", Square(0, 7));
+    piecesb[0] = new Tour(Blanc, "\u265C", Square(0, 0));
+    piecesb[1] = new Cavalier(Blanc, "\u265E", Square(0, 1));
+    piecesb[2] = new Fou(Blanc, "\u265D", Square(0, 2));
+    piecesb[3] = new Dame(Blanc, "\u265B", Square(0, 3));
+    piecesb[4] = new Roi(Blanc, "\u265A", Square(0, 4));
+    piecesb[5] = new Fou(Blanc, "\u265D", Square(0, 5));
+    piecesb[6] = new Cavalier(Blanc, "\u265E", Square(0, 6));
+    piecesb[7] = new Tour(Blanc, "\u265C", Square(0, 7));
     piecesn[0] = new Tour(Noir, "\u265C", Square(7, 0));
     piecesn[1] = new Cavalier(Noir, "\u265E", Square(7, 1));
     piecesn[2] = new Fou(Noir, "\u265D", Square(7, 2));
@@ -29,7 +29,7 @@ Echiquier::Echiquier() /* : bpromues(0), npromues(0) */ {
 
     // allocation des pions
     for (unsigned char i(0); i < NBCOL; i++) {
-        pionsb[i] = new Pion(Blanc, "\u2659", Square(1, i));
+        pionsb[i] = new Pion(Blanc, "\u265F", Square(1, i));
         pionsn[i] = new Pion(Noir, "\u265F", Square(6, i));
     }
     // Pose des pieces en position initiale
@@ -116,22 +116,22 @@ bool Echiquier::promotion(Couleur couleur, Square pos) {
         switch (piece_promue) {
         case 'Q':
             delete pionsb[pion_promu];
-            pionsb[pion_promu] = new Dame(Blanc, "\u2655", pos);
+            pionsb[pion_promu] = new Dame(Blanc, "\u265B", pos);
             pose_piece(pionsb[pion_promu]);
             break;
         case 'R':
             delete pionsb[pion_promu];
-            pionsb[pion_promu] = new Tour(Blanc, "\u2656", pos);
+            pionsb[pion_promu] = new Tour(Blanc, "\u265C", pos);
             pose_piece(pionsb[pion_promu]);
             break;
         case 'B':
             delete pionsb[pion_promu];
-            pionsb[pion_promu] = new Fou(Blanc, "\u2657", pos);
+            pionsb[pion_promu] = new Fou(Blanc, "\u265D", pos);
             pose_piece(pionsb[pion_promu]);
             break;
         case 'K':
             delete pionsb[pion_promu];
-            pionsb[pion_promu] = new Cavalier(Blanc, "\u2658", pos);
+            pionsb[pion_promu] = new Cavalier(Blanc, "\u265E", pos);
             pose_piece(pionsb[pion_promu]);
             break;
         default:
@@ -291,7 +291,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
                        pionsb[i]->est_mouvement_legal(pionb_i_pos.to_string(),
                                                       roi_n_pos.to_string()) &&
                        verif_saut(pionb_i_pos, roi_n_pos, true)) {
-                if (pionsb[i]->affiche() == "\u2659" &&
+                if (pionsb[i]->get_type() == "Pion" &&
                     pionb_i_pos.get_colonne() - roi_n_pos.get_colonne() == 0) {
                     return false;
                 }
@@ -336,7 +336,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
                        pionsn[i]->est_mouvement_legal(pionn_i_pos.to_string(),
                                                       roi_b_pos.to_string()) &&
                        verif_saut(pionn_i_pos, roi_b_pos, true)) {
-                if (pionsn[i]->affiche() == "\u265F" &&
+                if (pionsn[i]->get_type() == "Pion" &&
                     pionn_i_pos.get_colonne() - roi_b_pos.get_colonne() == 0) {
                     return false;
                 }
@@ -674,21 +674,21 @@ void Echiquier::affiche() const {
     cout << endl;
 }
 
-string Echiquier::pgn_piece_name(string name, bool view_pawn,
+string Echiquier::pgn_piece_name(string type, Couleur couleur, bool view_pawn,
                                  bool view_color) const {
 
     string psymb;
-    if (name == "\u2656")
+    if (type == "Tour" && couleur == Blanc)
         psymb = "R"; // Rook W
-    else if (name == "\u2658")
+    else if (type == "Cavalier" && couleur == Blanc)
         psymb = "N"; // Knight W
-    else if (name == "\u2657")
+    else if (type == "Fou" && couleur == Blanc)
         psymb = "B"; // Bishop W
-    else if (name == "\u2655")
+    else if (type == "Reine" && couleur == Blanc)
         psymb = "Q"; // Queen W
-    else if (name == "\u2654")
+    else if (type == "Roi" && couleur == Blanc)
         psymb = "K"; // King W
-    else if (name.rfind("\u2659", 0) == 0 && view_pawn)
+    else if (type == "Pion" && couleur == Blanc && view_pawn)
         psymb = "P";        // Pawn W
     if (psymb.size() > 0) { // one of the white piece has been found
         if (view_color)
@@ -696,17 +696,17 @@ string Echiquier::pgn_piece_name(string name, bool view_pawn,
         else
             return psymb;
     }
-    if (name == "\u265C")
+    if (type == "Tour" && couleur == Noir)
         psymb = "R"; // Rook B
-    else if (name == "\u265E")
+    else if (type == "Cavalier" && couleur == Noir)
         psymb = "N"; // Knight B
-    else if (name == "\u265D")
+    else if (type == "Fou" && couleur == Noir)
         psymb = "B"; // Bishop B
-    else if (name == "\u265B")
+    else if (type == "Reine" && couleur == Noir)
         psymb = "Q"; // Queen B
-    else if (name == "\u265A")
+    else if (type == "Roi" && couleur == Noir)
         psymb = "K"; // King B
-    else if (name.rfind("\u265F", 0) == 0 && view_pawn)
+    else if (type == "Pion" && couleur == Noir && view_pawn)
         psymb = "P";        // Pawn B
     if (psymb.size() > 0) { // one of the black piece has been found
         if (view_color)
@@ -725,8 +725,9 @@ string Echiquier::canonical_position() {
             if (get_piece(square))
                 // get pieces with theit PGN names,
                 // true -> with P for pawns, true -> w/b for colors.
-                output +=
-                    pgn_piece_name(get_piece(square)->to_string(), true, true);
+                output += pgn_piece_name(get_piece(square)->get_type(),
+                                         get_piece(square)->get_couleur(), true,
+                                         true);
             output += ",";
         }
     }

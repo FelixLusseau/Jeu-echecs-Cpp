@@ -117,12 +117,14 @@ class Echiquier {
     /**
      * @brief Récupère le nom pgn de la pièce.
      *
-     * @param name
+     * @param type
+     * @param couleur
      * @param view_pawn
      * @param view_color
      * @return string
      */
-    string pgn_piece_name(string name, bool view_pawn, bool view_color) const;
+    string pgn_piece_name(string type, Couleur couleur, bool view_pawn,
+                          bool view_color) const;
 
     /**
      * @brief Affiche la grille sous forme canonique.

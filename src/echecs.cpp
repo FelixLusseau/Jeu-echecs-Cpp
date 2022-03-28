@@ -30,19 +30,19 @@ int main() {
     bool stop(false);
     bool roqueb(false), roquen(false);
     bool deplace_ok(true);
-    bool echec(false);
-    Couleur couleur_echec;
     monjeu.affiche();
-    cout << "Exemple de coup : a1a8 (et attention aux couleurs inversées)"
-         << endl;
+    cout << "Exemple de coup : a1a8" << endl;
     do {
         coup_prec = mouvement;
-        // cout << "cout prec : " << coup_prec << endl;
-        if (couleur == Noir)
-            cout << "Coup Noir : ";
-        else
-            cout << "Coup Blanc : ";
+        if (monjeu.test_echec(couleur, false)) {
+            if (monjeu.test_mat(couleur))
+                break;
+        } else if (monjeu.test_pat(couleur))
+            break;
+
+        cout << "Coup " << (couleur ? "Blanc" : "Noir") << " : ";
         cin >> mouvement;
+
         if (mouvement != "/quit") {
             if (saisie_correcte_grandroque(mouvement)) {
                 if ((couleur == Noir && roquen) ||
@@ -83,37 +83,21 @@ int main() {
                 string dest = mouvement.substr(2, 2);
 
                 deplace_ok = monjeu.deplace(couleur, orig, dest, coup_prec);
-                if (deplace_ok == false)
+                if (deplace_ok == false) {
                     continue;
-                // cout << "echec : " << echec << endl;
-                if (echec) {
-                    if (monjeu.test_echec(couleur_echec, false)) {
-                        // monjeu.deplace(couleur, dest, orig, coup_prec);
-                        cout << endl
-                             << ANSI_COLOR_RED
-                             << "Votre roi est toujours en échec, veuillez "
-                                "réessayer ! "
-                             << ANSI_COLOR_RESET << endl;
-                        continue;
-                    } else
-                        echec = false;
                 }
             }
 
             monjeu.affiche();
 
-            if (monjeu.test_echec(couleur, false)) {
-                echec = true;
-                couleur_echec = couleur;
-                if (monjeu.test_mat(couleur))
-                    break;
-            }
             if (couleur == Blanc)
                 couleur = Noir;
             else
                 couleur = Blanc;
+
         } else
             stop = true;
     } while (!stop);
-    monjeu.fin_de_partie();
+
+    monjeu.fin_de_partie(couleur, stop);
 }

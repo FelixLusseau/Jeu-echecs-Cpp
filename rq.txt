@@ -1,2 +1,4 @@
-echec de sa couleur avant promo
-Couleurs AR
+getline(cin, mouvement)
+
+Plus d choses dans Echiquier::prise_en_passant ?
+Remplacer x et y par ligne et colonne.

@@ -7,14 +7,31 @@ using namespace std;
 
 class Square {
   private:
-    int x;
-    int y;
+    int ligne;
+    int colonne;
 
   public:
     Square(string entree);
-    Square(int x, int y);
+    Square(int ligne, int colonne);
 
+    /**
+     * @brief Renvoie la position sous forme de string. Ex : a3.
+     *
+     * @return string
+     */
     string to_string();
-    int get_x();
-    int get_y();
+
+    /**
+     * @brief Retourne la ligne de la pièce.
+     *
+     * @return int
+     */
+    int get_ligne();
+
+    /**
+     * @brief Retourne la colonne de la pièce.
+     *
+     * @return int
+     */
+    int get_colonne();
 };

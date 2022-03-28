@@ -2,23 +2,27 @@
 
 Piece::Piece(Couleur couleur, string nom, Square position)
     : nom(nom), couleur(couleur), position(position), a_bouge(false),
-      prise(false) { /* cout << "Piece creee !"; */
-}
+      prise(false) {}
 Piece::~Piece() {}
 
-string Piece::affiche() {
-    // cout << nom;
-    return nom;
-}
+string Piece::affiche() { return nom; }
+
 Square Piece::get_pos() { return position; }
-void Piece::set_pos(Square pos) {
+
+void Piece::set_pos(Square pos, bool test_mat) {
     position = pos;
-    a_bouge = true;
+    if (!test_mat)
+        a_bouge = true;
 }
+
 Couleur Piece::get_couleur() { return couleur; }
+
 string Piece::to_string() { return nom; }
+
 bool Piece::get_a_bouge() { return a_bouge; }
+
 bool Piece::get_prise() { return prise; }
+
 void Piece::set_prise(bool flag) { prise = flag; }
 
 // ---------------------------------------------------------------------------
@@ -160,7 +164,8 @@ bool Pion::est_mouvement_legal(string case_orig, string case_dest) {
                  (case_orig[1] == case_dest[1] - 1 &&
                   case_orig[0] == case_dest[0] + 1))
             return true;
-        else if (case_orig[1] == '2' && case_orig[1] == case_dest[1] - 2)
+        else if (case_orig[1] == '2' && case_orig[1] == case_dest[1] - 2 &&
+                 case_orig[0] == case_dest[0])
             return true;
         else
             return false;
@@ -172,7 +177,8 @@ bool Pion::est_mouvement_legal(string case_orig, string case_dest) {
                  (case_orig[1] == case_dest[1] + 1 &&
                   case_orig[0] == case_dest[0] + 1))
             return true;
-        else if (case_orig[1] == '7' && case_orig[1] == case_dest[1] + 2)
+        else if (case_orig[1] == '7' && case_orig[1] == case_dest[1] + 2 &&
+                 case_orig[0] == case_dest[0])
             return true;
         else
             return false;

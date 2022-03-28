@@ -2,8 +2,6 @@
 
 #include <string>
 
-// class Piece; // forward declaration
-
 #include "couleur.h"
 #include "square.h"
 
@@ -26,7 +24,7 @@ class Piece {
     string affiche();
     virtual bool est_mouvement_legal(string case_orig, string case_dest) = 0;
     Square get_pos();
-    void set_pos(Square pos);
+    void set_pos(Square pos, bool test_mat);
     Couleur get_couleur();
     string to_string();
     virtual string get_type() = 0;
@@ -36,8 +34,6 @@ class Piece {
 };
 
 class Tour : public Piece {
-  private:
-    bool a_bouge;
 
   public:
     Tour(Couleur couleur, string nom, Square position);

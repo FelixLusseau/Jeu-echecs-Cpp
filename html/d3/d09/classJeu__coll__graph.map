@@ -1,0 +1,11 @@
+<map id="Jeu" name="Jeu">
+<area shape="rect" id="node1" title="Classe codant la gestion du jeu, des règles etc..." alt="" coords="100,1064,268,1288"/>
+<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html" title="Classe codant l&#39;échiquier et sa gestion." alt="" coords="100,733,268,1001"/>
+<area shape="rect" id="node3" href="$d5/df0/classPiece.html" title="Classe virtuelle codant les méthodes et attributs communs à toutes les pièces." alt="" coords="88,388,280,612"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,204,77,281"/>
+<area shape="rect" id="node5" title=" " alt="" coords="111,204,161,281"/>
+<area shape="rect" id="node6" title="STL class." alt="" coords="187,204,274,281"/>
+<area shape="rect" id="node7" title="STL class." alt="" coords="161,5,300,97"/>
+<area shape="rect" id="node8" href="$d3/d72/classSquare.html" title="Classe codant une case stockée dans la pièce contenant la position, la convertissant depuis un string..." alt="" coords="298,175,425,311"/>
+<area shape="rect" id="node9" title=" " alt="" coords="342,13,381,90"/>
+</map>

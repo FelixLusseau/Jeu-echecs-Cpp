@@ -1,0 +1,4 @@
+<map id="grand_roque" name="grand_roque">
+<area shape="rect" id="node1" title="Appelle la fonction grand_roque de la classe Jeu si celui&#45;ci est légal." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$d1/de1/classJeu.html#af1971a27a404832575e483af9ff3034d" title="Effectue les vérifications et procède au grand roque." alt="" coords="156,5,287,32"/>
+</map>

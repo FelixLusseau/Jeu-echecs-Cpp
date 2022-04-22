@@ -1,0 +1,7 @@
+<map id="Echiquier::canonical_position" name="Echiquier::canonical_position">
+<area shape="rect" id="node1" title="Affiche la grille sous forme canonique." alt="" coords="5,49,157,90"/>
+<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html#aad0c74585938e29d9e21ee6777111c4a" title="Donne le pointeur vers la pièce depuis un Square." alt="" coords="229,31,382,57"/>
+<area shape="rect" id="node5" href="$d3/d05/classEchiquier.html#a9c0c8aa87bf49f325fb020f6f4ab4143" title="Récupère le nom pgn de la pièce." alt="" coords="205,81,405,108"/>
+<area shape="rect" id="node3" href="$d3/d72/classSquare.html#ac332e3b0296152b7c1abf93ab01e249d" title="Donne la colonne de la pièce." alt="" coords="453,5,608,32"/>
+<area shape="rect" id="node4" href="$d3/d72/classSquare.html#a421fe8f26c71df6fe5a61f63c9fc87c0" title="Donne la ligne de la pièce." alt="" coords="463,56,598,83"/>
+</map>

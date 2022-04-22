@@ -1,0 +1,4 @@
+<map id="Piece::get_couleur" name="Piece::get_couleur">
+<area shape="rect" id="node1" title="Donne la couleur de la pièce." alt="" coords="195,5,336,32"/>
+<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html#a30baff737ba912c8ff7a20194434dbba" title="Déplace la pièce sur l&#39;échiquier et vérifie que le mouvement ne met pas en échec." alt="" coords="5,5,147,32"/>
+</map>

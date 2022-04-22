@@ -1,0 +1,6 @@
+<map id="Echiquier::pose_piece" name="Echiquier::pose_piece">
+<area shape="rect" id="node1" title="Pose la pièce sur l&#39;échiquer." alt="" coords="5,56,168,83"/>
+<area shape="rect" id="node2" href="$d3/d72/classSquare.html#ac332e3b0296152b7c1abf93ab01e249d" title="Donne la colonne de la pièce." alt="" coords="216,5,371,32"/>
+<area shape="rect" id="node3" href="$d3/d72/classSquare.html#a421fe8f26c71df6fe5a61f63c9fc87c0" title="Donne la ligne de la pièce." alt="" coords="226,56,361,83"/>
+<area shape="rect" id="node4" href="$d5/df0/classPiece.html#a41dfa5d1a026c03f7161a7e04daaf741" title="Renvoie le Square de position de l&#39;objet." alt="" coords="235,107,351,133"/>
+</map>

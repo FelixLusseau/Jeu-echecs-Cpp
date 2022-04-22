@@ -1,0 +1,5 @@
+<map id="Echiquier::pose_piece" name="Echiquier::pose_piece">
+<area shape="rect" id="node1" title="Pose la pièce sur l&#39;échiquer." alt="" coords="211,31,373,57"/>
+<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html#a0aab8ba63f69aa9425d4e4a9c5cc578a" title=" " alt="" coords="9,5,159,32"/>
+<area shape="rect" id="node3" href="$d3/d05/classEchiquier.html#ab9a009dac3e0758defdbcf40b2c126fa" title="Demande à l&#39;utilisateur quelle pièce il souhaite promouvoir si un pion arrive à la dernière ligne en ..." alt="" coords="5,56,163,83"/>
+</map>

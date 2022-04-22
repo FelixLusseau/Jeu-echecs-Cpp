@@ -1,0 +1,4 @@
+<map id="Echiquier::affiche" name="Echiquier::affiche">
+<area shape="rect" id="node1" title="Affiche l&#39;échiquier à l&#39;écran." alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node2" href="$d5/df0/classPiece.html#a030556e88f8c322e8533b4804702a0b8" title="Affiche la pièce à l&#39;aide de son code UTF&#45;8." alt="" coords="188,5,297,32"/>
+</map>

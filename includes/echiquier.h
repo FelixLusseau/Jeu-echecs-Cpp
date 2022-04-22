@@ -8,6 +8,10 @@
 
 using namespace std;
 
+/**
+ * @brief Classe codant l'échiquier et sa gestion.
+ *
+ */
 class Echiquier {
   private:
     Piece *echiquier[NBCOL][NBCOL];
@@ -22,7 +26,7 @@ class Echiquier {
     ~Echiquier();
 
     /**
-     * @brief Retourne le pointeur vers la pièce depuis un Square.
+     * @brief Donne le pointeur vers la pièce depuis un Square.
      *
      * @param pos
      * @return Piece*
@@ -30,7 +34,7 @@ class Echiquier {
     Piece *get_piece(Square pos);
 
     /**
-     * @brief Retourne le pointeur vers la pièce depuis un couple de
+     * @brief Donne le pointeur vers la pièce depuis un couple de
      * coordonnées.
      *
      * @param ligne
@@ -90,6 +94,8 @@ class Echiquier {
 
     /**
      * @brief Teste l'échec pour la couleur sélectionnée.
+     * Le booléen permet de ne pas montrer les affichages de cette fonction lors
+     * de son appel dans mat_ou_pat.
      *
      * @param couleur
      * @param test_echec_et_mat
@@ -99,14 +105,15 @@ class Echiquier {
     bool echec(Couleur couleur, bool test_echec_et_mat);
 
     /**
-     * @brief Teste le mat ou le pat pour la couleur sélectionnée.
+     * @brief Teste le mat ou le pat pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat.
      *
      * @param couleur
      * @param test_pat
+     * @param compteur
      * @return true
      * @return false
      */
-    bool mat_ou_pat(Couleur couleur, bool test_pat);
+    bool mat_ou_pat(Couleur couleur, bool test_pat, int compteur);
 
     /**
      * @brief Affiche l'échiquier à l'écran.
@@ -123,8 +130,7 @@ class Echiquier {
      * @param view_color
      * @return string
      */
-    string pgn_piece_name(string type, Couleur couleur, bool view_pawn,
-                          bool view_color) const;
+    string pgn_piece_name(string type, Couleur couleur, bool view_pawn, bool view_color) const;
 
     /**
      * @brief Affiche la grille sous forme canonique.

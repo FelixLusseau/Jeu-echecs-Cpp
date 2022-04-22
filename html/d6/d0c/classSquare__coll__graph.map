@@ -1,0 +1,4 @@
+<map id="Square" name="Square">
+<area shape="rect" id="node1" title="Classe codant une case stockée dans la pièce contenant la position, la convertissant depuis un string..." alt="" coords="5,160,132,296"/>
+<area shape="rect" id="node2" title=" " alt="" coords="49,5,88,83"/>
+</map>

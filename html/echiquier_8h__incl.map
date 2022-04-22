@@ -1,0 +1,8 @@
+<map id="includes/echiquier.h" name="includes/echiquier.h">
+<area shape="rect" id="node1" title=" " alt="" coords="34,5,185,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,229,85,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="140,229,199,256"/>
+<area shape="rect" id="node4" href="$piece_8h.html" title=" " alt="" coords="109,80,179,107"/>
+<area shape="rect" id="node6" href="$square_8h.html" title=" " alt="" coords="30,155,109,181"/>
+<area shape="rect" id="node5" href="$couleur_8h.html" title=" " alt="" coords="185,155,266,181"/>
+</map>

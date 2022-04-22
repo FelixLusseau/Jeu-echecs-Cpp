@@ -1,0 +1,5 @@
+<map id="Echiquier" name="Echiquier">
+<area shape="rect" id="node1" title="Classe codant l&#39;échiquier et sa gestion." alt="" coords="5,243,88,269"/>
+<area shape="rect" id="node2" href="$classPiece.html" title="Classe virtuelle codant les méthodes et attributs communs à toutes les pièces." alt="" coords="18,95,75,121"/>
+<area shape="rect" id="node3" href="$classSquare.html" title="Classe codant une case stockée dans la pièce contenant la position, la convertissant depuis un string..." alt="" coords="13,5,80,32"/>
+</map>

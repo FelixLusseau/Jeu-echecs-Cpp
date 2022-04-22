@@ -1,0 +1,5 @@
+<map id="Dame" name="Dame">
+<area shape="rect" id="node1" title="Classe codant les attributs et méthodes spécifiques à la Dame." alt="" coords="8,171,69,197"/>
+<area shape="rect" id="node2" href="$classPiece.html" title="Classe virtuelle codant les méthodes et attributs communs à toutes les pièces." alt="" coords="10,95,67,121"/>
+<area shape="rect" id="node3" href="$classSquare.html" title="Classe codant une case stockée dans la pièce contenant la position, la convertissant depuis un string..." alt="" coords="5,5,72,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="includes/piece.h" name="includes/piece.h">
+<area shape="rect" id="node1" title=" " alt="" coords="263,5,389,32"/>
+<area shape="rect" id="node2" href="$echiquier_8h.html" title=" " alt="" coords="137,80,288,107"/>
+<area shape="rect" id="node7" href="$echiquier_8cpp.html" title=" " alt="" coords="261,155,391,181"/>
+<area shape="rect" id="node8" href="$piece_8cpp.html" title=" " alt="" coords="363,80,470,107"/>
+<area shape="rect" id="node3" href="$jeu_8h.html" title=" " alt="" coords="125,155,237,181"/>
+<area shape="rect" id="node4" href="$echecs_8h.html" title=" " alt="" coords="5,229,143,256"/>
+<area shape="rect" id="node5" href="$echecs_8cpp.html" title=" " alt="" coords="69,304,186,331"/>
+<area shape="rect" id="node6" href="$jeu_8cpp.html" title=" " alt="" coords="219,229,311,256"/>
+</map>

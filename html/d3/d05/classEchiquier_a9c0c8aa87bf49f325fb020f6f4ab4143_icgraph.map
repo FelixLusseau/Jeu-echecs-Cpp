@@ -1,0 +1,4 @@
+<map id="Echiquier::pgn_piece_name" name="Echiquier::pgn_piece_name">
+<area shape="rect" id="node1" title="Récupère le nom pgn de la pièce." alt="" coords="205,13,405,39"/>
+<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html#aa7e8d6eae6bb7147809ad84edf7aae56" title="Affiche la grille sous forme canonique." alt="" coords="5,5,157,47"/>
+</map>

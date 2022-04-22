@@ -1,0 +1,5 @@
+<map id="Jeu::jeu" name="Jeu::jeu">
+<area shape="rect" id="node1" title="Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et contrôle sa validité a..." alt="" coords="5,31,76,57"/>
+<area shape="rect" id="node2" href="$d3/d72/classSquare.html#ac332e3b0296152b7c1abf93ab01e249d" title="Donne la colonne de la pièce." alt="" coords="124,5,279,32"/>
+<area shape="rect" id="node3" href="$d3/d72/classSquare.html#a421fe8f26c71df6fe5a61f63c9fc87c0" title="Donne la ligne de la pièce." alt="" coords="134,56,269,83"/>
+</map>

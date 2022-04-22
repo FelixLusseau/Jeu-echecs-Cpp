@@ -5,6 +5,11 @@
 
 using namespace std;
 
+/**
+ * @brief Classe codant une case stockée dans la pièce contenant la position, la
+ * convertissant depuis un string vers des coordonnées et inversement.
+ *
+ */
 class Square {
   private:
     int ligne;
@@ -19,19 +24,19 @@ class Square {
      *
      * @return string
      */
-    string to_string();
+    string to_string() const;
 
     /**
-     * @brief Retourne la ligne de la pièce.
+     * @brief Donne la ligne de la pièce.
      *
      * @return int
      */
-    int get_ligne();
+    int get_ligne() const;
 
     /**
-     * @brief Retourne la colonne de la pièce.
+     * @brief Donne la colonne de la pièce.
      *
      * @return int
      */
-    int get_colonne();
+    int get_colonne() const;
 };

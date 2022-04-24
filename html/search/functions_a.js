@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['saisie_5fcorrecte_158',['saisie_correcte',['../echecs_8h.html#afdcb64ac96070af1fc7727323f8e738e',1,'saisie_correcte(string const &amp;cmd):&#160;echecs.cpp'],['../echecs_8cpp.html#afdcb64ac96070af1fc7727323f8e738e',1,'saisie_correcte(string const &amp;cmd):&#160;echecs.cpp']]],
-  ['saisie_5fcorrecte_5fgrandroque_159',['saisie_correcte_grandroque',['../echecs_8h.html#a217e727d624f94ec09f6cc183780632c',1,'saisie_correcte_grandroque(string const &amp;cmd):&#160;echecs.cpp'],['../echecs_8cpp.html#a217e727d624f94ec09f6cc183780632c',1,'saisie_correcte_grandroque(string const &amp;cmd):&#160;echecs.cpp']]],
-  ['saisie_5fcorrecte_5fpetitroque_160',['saisie_correcte_petitroque',['../echecs_8h.html#a004e49642d894c6fba2b388e61e2340f',1,'saisie_correcte_petitroque(string const &amp;cmd):&#160;echecs.cpp'],['../echecs_8cpp.html#a004e49642d894c6fba2b388e61e2340f',1,'saisie_correcte_petitroque(string const &amp;cmd):&#160;echecs.cpp']]],
-  ['set_5fpos_161',['set_pos',['../classPiece.html#a864edf214379d9be115d6647cbec252c',1,'Piece']]],
-  ['set_5fprise_162',['set_prise',['../classPiece.html#afc915cc68ed12ef6886666ca7ca77f5a',1,'Piece']]],
-  ['square_163',['Square',['../classSquare.html#a2aba362353e090ec980422f3b02b550d',1,'Square::Square(string entree)'],['../classSquare.html#a1972c0abd7fe1abc1e02dcb57a5302f9',1,'Square::Square(int ligne, int colonne)']]]
+  ['test_5fechec_167',['test_echec',['../classJeu.html#a0b65a58b4bff429dd749bfd02c1870b1',1,'Jeu']]],
+  ['test_5fmat_168',['test_mat',['../classJeu.html#a1a4d59a28947e4d2117b1e0cdfacca4e',1,'Jeu']]],
+  ['test_5fpat_5fou_5fegalite_169',['test_pat_ou_egalite',['../classJeu.html#a5fc0e6bbdbe5c523b71cc3285c2f01f6',1,'Jeu']]],
+  ['to_5fstring_170',['to_string',['../classSquare.html#a88bebbf7948fbe4354d29af096c2c58b',1,'Square']]],
+  ['tour_171',['Tour',['../classTour.html#a4749608c38ad87961713fc097014e9f1',1,'Tour']]]
 ];

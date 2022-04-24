@@ -12,7 +12,7 @@ Echiquier::Echiquier() {
         }
     }
 
-    // Constructeur (Couleur,nom_affiché, case)
+    // Constructeur (couleur, nom_affiché, case)
     piecesb[0] = new Tour(Blanc, "\u265C", Square(0, 0));
     piecesb[1] = new Cavalier(Blanc, "\u265E", Square(0, 1));
     piecesb[2] = new Fou(Blanc, "\u265D", Square(0, 2));
@@ -77,7 +77,7 @@ bool Echiquier::deplace(Square orig, Square dest) {
         echiquier[orig.get_ligne()][orig.get_colonne()] = echiquier[dest.get_ligne()][dest.get_colonne()];
         echiquier[dest.get_ligne()][dest.get_colonne()] = ancienne_piece_dest;
         echiquier[orig.get_ligne()][orig.get_colonne()]->set_pos(orig, false);
-        cout << endl
+        cerr << endl
              << ANSI_COLOR_RED
              << "Votre roi est (toujours) en échec, veuillez "
                 "réessayer ! "
@@ -139,7 +139,7 @@ bool Echiquier::promotion(Couleur couleur, Square pos) {
             pose_piece(pionsb[pion_promu]);
             break;
         default:
-            cout << endl << ANSI_COLOR_RED << "Pièce sélectionnée invalide, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+            cerr << endl << ANSI_COLOR_RED << "Pièce sélectionnée invalide, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
             return false;
         }
     } else {
@@ -181,7 +181,7 @@ bool Echiquier::promotion(Couleur couleur, Square pos) {
             pose_piece(pionsn[pion_promu]);
             break;
         default:
-            cout << endl << ANSI_COLOR_RED << "Pièce sélectionnée invalide, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+            cerr << endl << ANSI_COLOR_RED << "Pièce sélectionnée invalide, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
             return false;
         }
     }
@@ -198,14 +198,31 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
         (colonne_orig < colonne_dest) ? dcolonne = 1 : dcolonne = -1; // Détermination du sens de déplacement
 
         for (int k(colonne_orig + dcolonne); k != colonne_dest; k += dcolonne) {
-            if (get_piece(ligne_orig, k) && get_piece(ligne_orig, k)->get_pos().get_ligne() == ligne_orig && get_piece(ligne_orig, k)->get_pos().get_colonne() == k) {
-                if (!test_echec)
-                    cout << endl
-                         << ANSI_COLOR_RED
-                         << "Vous sautez une pièce, veuillez "
-                            "réessayer ! "
-                         << ANSI_COLOR_RESET << endl;
-                return false;
+            if (test_echec) { // Dans le cas où on teste l'échec, travvaille sur les positions stockées dans les pièces
+                for (int i(0); i < NBCOL; i++) {
+                    if ((piecesb[i]->get_pos().get_ligne() == ligne_orig && piecesb[i]->get_pos().get_colonne() == k) ||
+                        (piecesn[i]->get_pos().get_ligne() == ligne_orig && piecesn[i]->get_pos().get_colonne() == k) ||
+                        (pionsb[i]->get_pos().get_ligne() == ligne_orig && pionsb[i]->get_pos().get_colonne() == k) ||
+                        (pionsn[i]->get_pos().get_ligne() == ligne_orig && pionsn[i]->get_pos().get_colonne() == k)) {
+                        if (!test_echec)
+                            cerr << endl
+                                 << ANSI_COLOR_RED
+                                 << "Vous sautez une pièce, veuillez "
+                                    "réessayer ! "
+                                 << ligne_orig << k << ANSI_COLOR_RESET << endl;
+                        return false;
+                    }
+                }
+            } else { // Sinon travaille sur l'échiquier
+                if (get_piece(ligne_orig, k) && get_piece(ligne_orig, k)->get_pos().get_ligne() == ligne_orig && get_piece(ligne_orig, k)->get_pos().get_colonne() == k) {
+                    if (!test_echec)
+                        cerr << endl
+                             << ANSI_COLOR_RED
+                             << "Vous sautez une pièce, veuillez "
+                                "réessayer ! "
+                             << ANSI_COLOR_RESET << endl;
+                    return false;
+                }
             }
         }
         return true;
@@ -213,14 +230,31 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
         (ligne_orig < ligne_dest) ? dligne = 1 : dligne = -1;
 
         for (int k(ligne_orig + dligne); k != ligne_dest; k += dligne) {
-            if (get_piece(k, colonne_orig) && get_piece(k, colonne_orig)->get_pos().get_colonne() == colonne_orig && get_piece(k, colonne_orig)->get_pos().get_ligne() == k) {
-                if (!test_echec)
-                    cout << endl
-                         << ANSI_COLOR_RED
-                         << "Vous sautez une pièce, veuillez "
-                            "réessayer ! "
-                         << ANSI_COLOR_RESET << endl;
-                return false;
+            if (test_echec) {
+                for (int i(0); i < NBCOL; i++) {
+                    if ((piecesb[i]->get_pos().get_ligne() == k && piecesb[i]->get_pos().get_colonne() == colonne_orig) ||
+                        (piecesn[i]->get_pos().get_ligne() == k && piecesn[i]->get_pos().get_colonne() == colonne_orig) ||
+                        (pionsb[i]->get_pos().get_ligne() == k && pionsb[i]->get_pos().get_colonne() == colonne_orig) ||
+                        (pionsn[i]->get_pos().get_ligne() == k && pionsn[i]->get_pos().get_colonne() == colonne_orig)) {
+                        if (!test_echec)
+                            cerr << endl
+                                 << ANSI_COLOR_RED
+                                 << "Vous sautez une pièce, veuillez "
+                                    "réessayer ! "
+                                 << ANSI_COLOR_RESET << endl;
+                        return false;
+                    }
+                }
+            } else {
+                if (get_piece(k, colonne_orig) && get_piece(k, colonne_orig)->get_pos().get_colonne() == colonne_orig && get_piece(k, colonne_orig)->get_pos().get_ligne() == k) {
+                    if (!test_echec)
+                        cerr << endl
+                             << ANSI_COLOR_RED
+                             << "Vous sautez une pièce, veuillez "
+                                "réessayer ! "
+                             << ANSI_COLOR_RESET << endl;
+                    return false;
+                }
             }
         }
         return true;
@@ -231,14 +265,32 @@ bool Echiquier::verif_saut(Square &orig, Square &dest, bool test_echec) {
 
         for (int k(ligne_orig + dligne); k != ligne_dest; k += dligne) {
             for (int l(colonne_orig + dcolonne); l != colonne_dest; l += dcolonne) {
-                if (get_piece(k, l) && get_piece(k, l)->get_pos().get_colonne() == l && get_piece(k, l)->get_pos().get_ligne() == k) {
-                    if (!test_echec)
-                        cout << endl
-                             << ANSI_COLOR_RED
-                             << "Vous sautez une pièce, veuillez "
-                                "réessayer ! "
-                             << ANSI_COLOR_RESET << endl;
-                    return false;
+                if (test_echec) {
+                    for (int i(0); i < NBCOL; i++) {
+                        if ((piecesb[i]->get_pos().get_ligne() == k && piecesb[i]->get_pos().get_colonne() == l) ||
+                            (piecesn[i]->get_pos().get_ligne() == k && piecesn[i]->get_pos().get_colonne() == l) ||
+                            (pionsb[i]->get_pos().get_ligne() == k && pionsb[i]->get_pos().get_colonne() == l) || (pionsn[i]->get_pos().get_ligne() == k && pionsn[i]->get_pos().get_colonne() == l)) {
+                            if (!test_echec)
+                                cerr << endl
+                                     << ANSI_COLOR_RED
+                                     << "Vous sautez une pièce, veuillez "
+                                        "réessayer ! "
+                                     << ANSI_COLOR_RESET << endl;
+                            return false;
+                        }
+                    }
+                }
+
+                else {
+                    if (get_piece(k, l) && get_piece(k, l)->get_pos().get_colonne() == l && get_piece(k, l)->get_pos().get_ligne() == k) {
+                        if (!test_echec)
+                            cerr << endl
+                                 << ANSI_COLOR_RED
+                                 << "Vous sautez une pièce, veuillez "
+                                    "réessayer ! "
+                                 << ANSI_COLOR_RESET << endl;
+                        return false;
+                    }
                 }
                 k += dligne;
             }
@@ -259,7 +311,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
 
             if (!piecesb[i]->get_prise() && piecesb[i]->est_mouvement_legal(pieceb_i_pos.to_string(), roi_n_pos.to_string()) && verif_saut(pieceb_i_pos, roi_n_pos, true)) {
                 if (!test_echec_et_mat)
-                    cout << ANSI_COLOR_RED << "Echec noir ! " << ANSI_COLOR_RESET << piecesb[i]->get_type() << " " << piecesb[i]->affiche() << " sur " << ANSI_COLOR_BLACK << piecesn[4]->affiche()
+                    cout << ANSI_COLOR_RED << "Échec noir ! " << ANSI_COLOR_RESET << piecesb[i]->get_type() << " " << piecesb[i]->affiche() << " sur " << ANSI_COLOR_BLACK << piecesn[4]->affiche()
                          << ANSI_COLOR_RESET << endl;
                 return true;
             } else if (!pionsb[i]->get_prise() && pionsb[i]->est_mouvement_legal(pionb_i_pos.to_string(), roi_n_pos.to_string()) && verif_saut(pionb_i_pos, roi_n_pos, true)) {
@@ -267,7 +319,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
                     return false;
                 }
                 if (!test_echec_et_mat)
-                    cout << ANSI_COLOR_RED << "Echec noir ! " << ANSI_COLOR_RESET << pionsb[i]->get_type() << " " << pionsb[i]->affiche() << " sur " << piecesn[4]->affiche() << endl;
+                    cout << ANSI_COLOR_RED << "Échec noir ! " << ANSI_COLOR_RESET << pionsb[i]->get_type() << " " << pionsb[i]->affiche() << " sur " << piecesn[4]->affiche() << endl;
                 return true;
             }
         }
@@ -281,7 +333,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
 
             if (!piecesn[i]->get_prise() && piecesn[i]->est_mouvement_legal(piecen_i_pos.to_string(), roi_b_pos.to_string()) && verif_saut(piecen_i_pos, roi_b_pos, true)) {
                 if (!test_echec_et_mat)
-                    cout << ANSI_COLOR_RED << "Echec blanc ! " << ANSI_COLOR_RESET << piecesn[i]->get_type() << " " << ANSI_COLOR_BLACK << piecesn[i]->affiche() << ANSI_COLOR_RESET << " sur "
+                    cout << ANSI_COLOR_RED << "Échec blanc ! " << ANSI_COLOR_RESET << piecesn[i]->get_type() << " " << ANSI_COLOR_BLACK << piecesn[i]->affiche() << ANSI_COLOR_RESET << " sur "
                          << piecesb[4]->affiche() << endl;
                 return true;
             } else if (!pionsn[i]->get_prise() && pionsn[i]->est_mouvement_legal(pionn_i_pos.to_string(), roi_b_pos.to_string()) && verif_saut(pionn_i_pos, roi_b_pos, true)) {
@@ -289,7 +341,7 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
                     return false;
                 }
                 if (!test_echec_et_mat)
-                    cout << ANSI_COLOR_RED << "Echec blanc ! " << ANSI_COLOR_RESET << pionsn[i]->get_type() << " " << ANSI_COLOR_BLACK << pionsn[i]->affiche() << ANSI_COLOR_RESET << " sur "
+                    cout << ANSI_COLOR_RED << "Échec blanc ! " << ANSI_COLOR_RESET << pionsn[i]->get_type() << " " << ANSI_COLOR_BLACK << pionsn[i]->affiche() << ANSI_COLOR_RESET << " sur "
                          << piecesb[4]->affiche() << endl;
                 return true;
             }
@@ -298,9 +350,9 @@ bool Echiquier::echec(Couleur couleur, bool test_echec_et_mat) {
     return false;
 }
 
-bool Echiquier::mat_ou_pat(Couleur couleur, bool test_pat, int compteur) {
+bool Echiquier::mat_ou_pat_ou_egalite(Couleur couleur, bool test_pat, int compteur) {
     if (test_pat && compteur == 50) {
-        cout << endl << ANSI_COLOR_RED << "Pat ! 50 coups sans prise ou déplacement de pion atteints. " << ANSI_COLOR_RESET << endl;
+        cout << endl << ANSI_COLOR_RED << "50 coups sans prise ou déplacement de pion atteints. " << ANSI_COLOR_RESET << endl;
         return true;
     }
 
@@ -365,7 +417,7 @@ bool Echiquier::mat_ou_pat(Couleur couleur, bool test_pat, int compteur) {
             }
         }
         if (!test_pat)
-            cout << ANSI_COLOR_RED << "Echec et mat joueur Noir ! " << ANSI_COLOR_RESET << endl;
+            cout << ANSI_COLOR_RED << "Échec et mat joueur Noir ! " << ANSI_COLOR_RESET << endl;
         else
             cout << endl << ANSI_COLOR_RED << "Pat ! Aucune pièce ne peut bouger sans mettre en échec le roi Noir." << ANSI_COLOR_RESET << endl;
     } else {
@@ -428,7 +480,7 @@ bool Echiquier::mat_ou_pat(Couleur couleur, bool test_pat, int compteur) {
             }
         }
         if (!test_pat)
-            cout << ANSI_COLOR_RED << "Echec et mat joueur Blanc ! " << ANSI_COLOR_RESET << endl;
+            cout << ANSI_COLOR_RED << "Échec et mat joueur Blanc ! " << ANSI_COLOR_RESET << endl;
         else
             cout << endl << ANSI_COLOR_RED << "Pat !  Aucune pièce ne peut bouger sans mettre en échec le roi Blanc. " << ANSI_COLOR_RESET << endl;
     }
@@ -517,7 +569,7 @@ void Echiquier::affiche() const {
     }
     cout << endl;
 
-    /* Affichage des prises du joueur noir s'il y en a */
+    /* Affichage des prises du joueur blanc s'il y en a */
     cout << "   ";
     for (int d(0); d < NBCOL; d++) {
         if (piecesn[d]->get_prise()) {
@@ -538,17 +590,17 @@ void Echiquier::affiche() const {
 string Echiquier::pgn_piece_name(string type, Couleur couleur, bool view_pawn, bool view_color) const {
     string psymb;
     if (type == "Tour" && couleur == Blanc)
-        psymb = "R"; // Rook W
+        psymb = "R"; // Rook R
     else if (type == "Cavalier" && couleur == Blanc)
-        psymb = "N"; // Knight W
+        psymb = "N"; // Knight N
     else if (type == "Fou" && couleur == Blanc)
-        psymb = "B"; // Bishop W
+        psymb = "B"; // Bishop B
     else if (type == "Reine" && couleur == Blanc)
-        psymb = "Q"; // Queen W
+        psymb = "Q"; // Queen Q
     else if (type == "Roi" && couleur == Blanc)
-        psymb = "K"; // King W
+        psymb = "K"; // King K
     else if (type == "Pion" && couleur == Blanc && view_pawn)
-        psymb = "P"; // Pawn W
+        psymb = "P"; // Pawn P
 
     if (psymb.size() > 0) { // one of the white piece has been found
         if (view_color)
@@ -558,17 +610,17 @@ string Echiquier::pgn_piece_name(string type, Couleur couleur, bool view_pawn, b
     }
 
     if (type == "Tour" && couleur == Noir)
-        psymb = "R"; // Rook B
+        psymb = "R"; // Rook R
     else if (type == "Cavalier" && couleur == Noir)
-        psymb = "N"; // Knight B
+        psymb = "N"; // Knight N
     else if (type == "Fou" && couleur == Noir)
         psymb = "B"; // Bishop B
     else if (type == "Reine" && couleur == Noir)
-        psymb = "Q"; // Queen B
+        psymb = "Q"; // Queen Q
     else if (type == "Roi" && couleur == Noir)
-        psymb = "K"; // King B
+        psymb = "K"; // King K
     else if (type == "Pion" && couleur == Noir && view_pawn)
-        psymb = "P"; // Pawn B
+        psymb = "P"; // Pawn P
 
     if (psymb.size() > 0) { // one of the black piece has been found
         if (view_color)

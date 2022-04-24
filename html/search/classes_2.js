@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['echiquier_94',['Echiquier',['../classEchiquier.html',1,'']]]
+  ['echiquier_96',['Echiquier',['../classEchiquier.html',1,'']]]
 ];

@@ -90,17 +90,17 @@ Graphe de collaboration de Jeu:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a0b65a58b4bff429dd749bfd02c1870b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a0b65a58b4bff429dd749bfd02c1870b1">test_echec</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, bool test_echec_et_mat)</td></tr>
-<tr class="memdesc:a0b65a58b4bff429dd749bfd02c1870b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction echec de l'échiquier pour la couleur donnée.  <a href="classJeu.html#a0b65a58b4bff429dd749bfd02c1870b1">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a0b65a58b4bff429dd749bfd02c1870b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction echec de l'échiquier pour la couleur donnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat_ou_egalite.  <a href="classJeu.html#a0b65a58b4bff429dd749bfd02c1870b1">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0b65a58b4bff429dd749bfd02c1870b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4d59a28947e4d2117b1e0cdfacca4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a1a4d59a28947e4d2117b1e0cdfacca4e">test_mat</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur)</td></tr>
-<tr class="memdesc:a1a4d59a28947e4d2117b1e0cdfacca4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction mat_ou_pat de l'échiquier pour la couleur donnée.  <a href="classJeu.html#a1a4d59a28947e4d2117b1e0cdfacca4e">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a1a4d59a28947e4d2117b1e0cdfacca4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur donnée.  <a href="classJeu.html#a1a4d59a28947e4d2117b1e0cdfacca4e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1a4d59a28947e4d2117b1e0cdfacca4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2163e6aa925559b55fe279ac097c187b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a2163e6aa925559b55fe279ac097c187b">test_pat</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, int compteur)</td></tr>
-<tr class="memdesc:a2163e6aa925559b55fe279ac097c187b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction mat_ou_pat de l'échiquier pour la couleur donnée et lui transmet le compteur de coups sans prise ou déplacement de pion.  <a href="classJeu.html#a2163e6aa925559b55fe279ac097c187b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a2163e6aa925559b55fe279ac097c187b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5c0c962dce689c7c2ec451fd0a8efd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#ad5c0c962dce689c7c2ec451fd0a8efd6">jeu</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, string str_orig, string str_dest, string coup_prec, bool *prise_ou_pion)</td></tr>
-<tr class="memdesc:ad5c0c962dce689c7c2ec451fd0a8efd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et contrôle sa validité avant de l'effectuer en faisant appel aux fonctions de l'échiquier.  <a href="classJeu.html#ad5c0c962dce689c7c2ec451fd0a8efd6">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ad5c0c962dce689c7c2ec451fd0a8efd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fc0e6bbdbe5c523b71cc3285c2f01f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a5fc0e6bbdbe5c523b71cc3285c2f01f6">test_pat_ou_egalite</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, int compteur)</td></tr>
+<tr class="memdesc:a5fc0e6bbdbe5c523b71cc3285c2f01f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur donnée et lui transmet le compteur de coups sans prise ou déplacement de pion.  <a href="classJeu.html#a5fc0e6bbdbe5c523b71cc3285c2f01f6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5fc0e6bbdbe5c523b71cc3285c2f01f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd39503de946d097a132b1cd45a484a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#afd39503de946d097a132b1cd45a484a3">execution</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, string str_orig, string str_dest, string coup_prec, bool *prise_ou_pion)</td></tr>
+<tr class="memdesc:afd39503de946d097a132b1cd45a484a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et contrôle sa validité avant de l'effectuer en faisant appel aux fonctions de l'échiquier.  <a href="classJeu.html#afd39503de946d097a132b1cd45a484a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd39503de946d097a132b1cd45a484a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29014cd2506132c28b282569173ce12d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a29014cd2506132c28b282569173ce12d">force_deplace</a> (<a class="el" href="classSquare.html">Square</a> orig, <a class="el" href="classSquare.html">Square</a> dest)</td></tr>
 <tr class="memdesc:a29014cd2506132c28b282569173ce12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace une pièce sans vérification.  <a href="classJeu.html#a29014cd2506132c28b282569173ce12d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a29014cd2506132c28b282569173ce12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +167,67 @@ Attributs privés</h2></td></tr>
 
 <p>Appelle la fonction canonical_position de l'échiquier. </p>
 <dl class="section return"><dt>Renvoie</dt><dd>string </dd></dl>
+
+</div>
+</div>
+<a id="afd39503de946d097a132b1cd45a484a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd39503de946d097a132b1cd45a484a3">&#9670;&nbsp;</a></span>execution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Jeu::execution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
+          <td class="paramname"><em>couleur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str_orig</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str_dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>coup_prec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>prise_ou_pion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et contrôle sa validité avant de l'effectuer en faisant appel aux fonctions de l'échiquier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">couleur</td><td></td></tr>
+    <tr><td class="paramname">str_orig</td><td></td></tr>
+    <tr><td class="paramname">str_dest</td><td></td></tr>
+    <tr><td class="paramname">coup_prec</td><td></td></tr>
+    <tr><td class="paramname">prise_ou_pion</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
+<dd>
+false </dd></dl>
 
 </div>
 </div>
@@ -307,67 +368,6 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="ad5c0c962dce689c7c2ec451fd0a8efd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5c0c962dce689c7c2ec451fd0a8efd6">&#9670;&nbsp;</a></span>jeu()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Jeu::jeu </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
-          <td class="paramname"><em>couleur</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>str_orig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>str_dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>coup_prec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>prise_ou_pion</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et contrôle sa validité avant de l'effectuer en faisant appel aux fonctions de l'échiquier. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">couleur</td><td></td></tr>
-    <tr><td class="paramname">str_orig</td><td></td></tr>
-    <tr><td class="paramname">str_dest</td><td></td></tr>
-    <tr><td class="paramname">coup_prec</td><td></td></tr>
-    <tr><td class="paramname">prise_ou_pion</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-
-</div>
-</div>
 <a id="a994183a8f022751a1b79cbf3ebc0afbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a994183a8f022751a1b79cbf3ebc0afbe">&#9670;&nbsp;</a></span>petit_roque()</h2>
 
@@ -423,7 +423,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Appelle la fonction echec de l'échiquier pour la couleur donnée. </p>
+<p>Appelle la fonction echec de l'échiquier pour la couleur donnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat_ou_egalite. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">couleur</td><td></td></tr>
@@ -453,7 +453,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Appelle la fonction mat_ou_pat de l'échiquier pour la couleur donnée. </p>
+<p>Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur donnée. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">couleur</td><td></td></tr>
@@ -466,14 +466,14 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a2163e6aa925559b55fe279ac097c187b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2163e6aa925559b55fe279ac097c187b">&#9670;&nbsp;</a></span>test_pat()</h2>
+<a id="a5fc0e6bbdbe5c523b71cc3285c2f01f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fc0e6bbdbe5c523b71cc3285c2f01f6">&#9670;&nbsp;</a></span>test_pat_ou_egalite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Jeu::test_pat </td>
+          <td class="memname">bool Jeu::test_pat_ou_egalite </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
           <td class="paramname"><em>couleur</em>, </td>
@@ -492,7 +492,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Appelle la fonction mat_ou_pat de l'échiquier pour la couleur donnée et lui transmet le compteur de coups sans prise ou déplacement de pion. </p>
+<p>Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur donnée et lui transmet le compteur de coups sans prise ou déplacement de pion. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">couleur</td><td></td></tr>

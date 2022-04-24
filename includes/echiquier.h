@@ -44,7 +44,7 @@ class Echiquier {
     Piece *get_piece(int ligne, int colonne);
 
     /**
-     * @brief Pose la pièce sur l'échiquer.
+     * @brief Pose la pièce sur l'échiquier.
      *
      * @param piece
      */
@@ -83,6 +83,8 @@ class Echiquier {
 
     /**
      * @brief Vérifie si une pièce en saute une autre lors de son mouvement.
+     * Le booléen permet de ne pas montrer les affichages de cette fonction lors
+     * de son appel dans echec ou mat_ou_pat_ou_egalite.
      *
      * @param orig
      * @param dest
@@ -95,7 +97,7 @@ class Echiquier {
     /**
      * @brief Teste l'échec pour la couleur sélectionnée.
      * Le booléen permet de ne pas montrer les affichages de cette fonction lors
-     * de son appel dans mat_ou_pat.
+     * de son appel dans mat_ou_pat_ou_egalite.
      *
      * @param couleur
      * @param test_echec_et_mat
@@ -105,7 +107,9 @@ class Echiquier {
     bool echec(Couleur couleur, bool test_echec_et_mat);
 
     /**
-     * @brief Teste le mat ou le pat pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat.
+     * @brief Teste le mat, le pat ou l'égalité pour la couleur sélectionnée.
+     * Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat / égalité.
+     * La fonction travaille sur les positions stockées dans les pièces et non sur l'échiquier lui-même.
      *
      * @param couleur
      * @param test_pat
@@ -113,7 +117,7 @@ class Echiquier {
      * @return true
      * @return false
      */
-    bool mat_ou_pat(Couleur couleur, bool test_pat, int compteur);
+    bool mat_ou_pat_ou_egalite(Couleur couleur, bool test_pat, int compteur);
 
     /**
      * @brief Affiche l'échiquier à l'écran.

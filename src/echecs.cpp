@@ -11,7 +11,7 @@ using namespace std;
 //--------------------------------------------------------------
 
 bool saisie_correcte(string const &cmd) {
-    regex mouvmtpattern("[a-h][1-8][a-h][1-8]");
+    regex mouvmtpattern("[a-h][1-8][a-h][1-8][[:space:]]*");
     return regex_match(cmd, mouvmtpattern);
 }
 
@@ -27,7 +27,7 @@ bool saisie_correcte_grandroque(string const &cmd) {
 
 bool grand_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
     if ((couleur == Noir && *roquen) || (couleur == Blanc && *roqueb)) {
-        cout << endl << ANSI_COLOR_RED << "Impossible de réaliser le grand roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+        cerr << endl << ANSI_COLOR_RED << "Impossible de réaliser le grand roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
         return false;
     } else if (monjeu->grand_roque(couleur)) {
         cout << ANSI_COLOR_GREEN << "Grand roque effectué ! " << ANSI_COLOR_RESET << endl;
@@ -39,7 +39,7 @@ bool grand_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
 
 bool petit_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
     if ((couleur == Noir && *roquen) || (couleur == Blanc && *roqueb)) {
-        cout << endl << ANSI_COLOR_RED << "Impossible de réaliser le petit roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+        cerr << endl << ANSI_COLOR_RED << "Impossible de réaliser le petit roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
         return false;
     } else if (monjeu->petit_roque(couleur)) {
         cout << ANSI_COLOR_GREEN << "Petit roque effectué ! " << ANSI_COLOR_RESET << endl;
@@ -66,7 +66,7 @@ bool gestion_fifo(queue<string> &fifo, Jeu *monjeu) {
                 copie_fifo.pop();
 
             if (copie_fifo.front() == copie_fifo.back()) {
-                cout << endl << ANSI_COLOR_RED << "Pat ! Règle des 3 positions identiques ! " << ANSI_COLOR_RESET << endl;
+                cout << endl << ANSI_COLOR_RED << "3 positions identiques ! " << ANSI_COLOR_RESET << endl;
                 return true;
             }
         }
@@ -76,12 +76,11 @@ bool gestion_fifo(queue<string> &fifo, Jeu *monjeu) {
 
 int main() {
     Jeu monjeu; // initialise le jeu
-    string mouvement, coup_prec;
+    string mouvement, coup_prec("0000");
     queue<string> echiquer_canonique;
     Couleur couleur = Blanc;
-    bool stop(false), pat(false), prise_ou_pion(false);
+    bool stop(false), egalite(false), prise_ou_pion(false);
     bool roqueb(false), roquen(false);
-    bool deplace_ok(true);
     int compteur(0);
 
     monjeu.affiche();
@@ -93,8 +92,8 @@ int main() {
         if (monjeu.test_echec(couleur, false)) {
             if (monjeu.test_mat(couleur))
                 break;
-        } else if (monjeu.test_pat(couleur, compteur)) {
-            pat = true;
+        } else if (monjeu.test_pat_ou_egalite(couleur, compteur)) {
+            egalite = true;
             break;
         }
 
@@ -119,19 +118,18 @@ int main() {
                 string orig = mouvement.substr(0, 2);
                 string dest = mouvement.substr(2, 2);
 
-                deplace_ok = monjeu.jeu(couleur, orig, dest, coup_prec, &prise_ou_pion);
-                if (deplace_ok == false) {
+                if (monjeu.execution(couleur, orig, dest, coup_prec, &prise_ou_pion) == false) {
                     continue;
                 }
 
                 /* Vérification de l'absence de 3 échiquiers identiques de suite */
                 if (gestion_fifo(echiquer_canonique, &monjeu)) {
-                    pat = true;
+                    egalite = true;
                     break;
                 }
             }
 
-            /* Vérification de la règle des 50 coups */
+            /* Mise à jour du compteur de la règle des 50 coups sans prise ou déplacement de pion */
             if (!prise_ou_pion)
                 compteur++;
             else {
@@ -143,7 +141,7 @@ int main() {
 
             monjeu.affiche();
 
-            /* Changement de couleur */
+            /* Changement de couleur pour l'alternance des joueurs */
             if (couleur == Blanc)
                 couleur = Noir;
             else
@@ -154,5 +152,5 @@ int main() {
     } while (!stop);
 
     /* Affichage de fin de partie */
-    monjeu.fin_de_partie(couleur, stop, pat);
+    monjeu.fin_de_partie(couleur, stop, egalite);
 }

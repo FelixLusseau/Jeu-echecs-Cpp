@@ -44,7 +44,7 @@ class Piece {
     virtual bool est_mouvement_legal(string case_orig, string case_dest) const = 0;
 
     /**
-     * @brief Renvoie le Square de position de l'objet.
+     * @brief Renvoie la position de la pièce sous forme de Square.
      *
      * @return Square
      */

@@ -1,5 +1,5 @@
 CC = g++ #x86_64-w64-mingw32-g++ 
-CFLAGS ?= -Wall -Wextra -Werror -g -pipe
+CFLAGS ?= -Wall -Wextra -Werror -g -pipe -pedantic
 LDLIBS ?= 
 
 INCLUDE_PATH = ./includes

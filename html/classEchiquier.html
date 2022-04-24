@@ -99,7 +99,7 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:ad8a74efa69fa72a4fcc33a2936882103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne le pointeur vers la pièce depuis un couple de coordonnées.  <a href="classEchiquier.html#ad8a74efa69fa72a4fcc33a2936882103">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad8a74efa69fa72a4fcc33a2936882103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97cda60fa0a5133dc783d1ef35c611e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#a97cda60fa0a5133dc783d1ef35c611e6">pose_piece</a> (<a class="el" href="classPiece.html">Piece</a> *piece)</td></tr>
-<tr class="memdesc:a97cda60fa0a5133dc783d1ef35c611e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose la pièce sur l'échiquer.  <a href="classEchiquier.html#a97cda60fa0a5133dc783d1ef35c611e6">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a97cda60fa0a5133dc783d1ef35c611e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pose la pièce sur l'échiquier.  <a href="classEchiquier.html#a97cda60fa0a5133dc783d1ef35c611e6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a97cda60fa0a5133dc783d1ef35c611e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30baff737ba912c8ff7a20194434dbba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#a30baff737ba912c8ff7a20194434dbba">deplace</a> (<a class="el" href="classSquare.html">Square</a> orig, <a class="el" href="classSquare.html">Square</a> dest)</td></tr>
 <tr class="memdesc:a30baff737ba912c8ff7a20194434dbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace la pièce sur l'échiquier et vérifie que le mouvement ne met pas en échec.  <a href="classEchiquier.html#a30baff737ba912c8ff7a20194434dbba">Plus de détails...</a><br /></td></tr>
@@ -111,14 +111,14 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:ab9a009dac3e0758defdbcf40b2c126fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demande à l'utilisateur quelle pièce il souhaite promouvoir si un pion arrive à la dernière ligne en face de lui et met à jour l'échiquier et le tableau de pions en conséquence.  <a href="classEchiquier.html#ab9a009dac3e0758defdbcf40b2c126fa">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab9a009dac3e0758defdbcf40b2c126fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a525b63fa117ce55440139d25bcdd6ba3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#a525b63fa117ce55440139d25bcdd6ba3">verif_saut</a> (<a class="el" href="classSquare.html">Square</a> &amp;orig, <a class="el" href="classSquare.html">Square</a> &amp;dest, bool test_echec)</td></tr>
-<tr class="memdesc:a525b63fa117ce55440139d25bcdd6ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une pièce en saute une autre lors de son mouvement.  <a href="classEchiquier.html#a525b63fa117ce55440139d25bcdd6ba3">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a525b63fa117ce55440139d25bcdd6ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une pièce en saute une autre lors de son mouvement. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans echec ou mat_ou_pat_ou_egalite.  <a href="classEchiquier.html#a525b63fa117ce55440139d25bcdd6ba3">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a525b63fa117ce55440139d25bcdd6ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d54da69288d5a73c001e70793e626b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#ab5d54da69288d5a73c001e70793e626b">echec</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, bool test_echec_et_mat)</td></tr>
-<tr class="memdesc:ab5d54da69288d5a73c001e70793e626b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'échec pour la couleur sélectionnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat.  <a href="classEchiquier.html#ab5d54da69288d5a73c001e70793e626b">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ab5d54da69288d5a73c001e70793e626b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste l'échec pour la couleur sélectionnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat_ou_egalite.  <a href="classEchiquier.html#ab5d54da69288d5a73c001e70793e626b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab5d54da69288d5a73c001e70793e626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac58434943ec971bcd069a64b5502869e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#ac58434943ec971bcd069a64b5502869e">mat_ou_pat</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, bool test_pat, int compteur)</td></tr>
-<tr class="memdesc:ac58434943ec971bcd069a64b5502869e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste le mat ou le pat pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat.  <a href="classEchiquier.html#ac58434943ec971bcd069a64b5502869e">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac58434943ec971bcd069a64b5502869e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47af57a9201bab1139f3774a9812e031"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#a47af57a9201bab1139f3774a9812e031">mat_ou_pat_ou_egalite</a> (<a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a> couleur, bool test_pat, int compteur)</td></tr>
+<tr class="memdesc:a47af57a9201bab1139f3774a9812e031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste le mat, le pat ou l'égalité pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat / égalité. La fonction travaille sur les positions stockées dans les pièces et non sur l'échiquier lui-même.  <a href="classEchiquier.html#a47af57a9201bab1139f3774a9812e031">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a47af57a9201bab1139f3774a9812e031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af22265120d527dfb2fa91187c4ce01cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEchiquier.html#af22265120d527dfb2fa91187c4ce01cf">affiche</a> () const</td></tr>
 <tr class="memdesc:af22265120d527dfb2fa91187c4ce01cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'échiquier à l'écran.  <a href="classEchiquier.html#af22265120d527dfb2fa91187c4ce01cf">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af22265120d527dfb2fa91187c4ce01cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -285,7 +285,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Teste l'échec pour la couleur sélectionnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat. </p>
+<p>Teste l'échec pour la couleur sélectionnée. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans mat_ou_pat_ou_egalite. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">couleur</td><td></td></tr>
@@ -364,14 +364,14 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="ac58434943ec971bcd069a64b5502869e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac58434943ec971bcd069a64b5502869e">&#9670;&nbsp;</a></span>mat_ou_pat()</h2>
+<a id="a47af57a9201bab1139f3774a9812e031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47af57a9201bab1139f3774a9812e031">&#9670;&nbsp;</a></span>mat_ou_pat_ou_egalite()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Echiquier::mat_ou_pat </td>
+          <td class="memname">bool Echiquier::mat_ou_pat_ou_egalite </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="couleur_8h.html#aa304d0ca681f782b1d7735da33037dd7">Couleur</a>&#160;</td>
           <td class="paramname"><em>couleur</em>, </td>
@@ -396,7 +396,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Teste le mat ou le pat pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat. </p>
+<p>Teste le mat, le pat ou l'égalité pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de pion est envoyé lors du test de pat / égalité. La fonction travaille sur les positions stockées dans les pièces et non sur l'échiquier lui-même. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">couleur</td><td></td></tr>
@@ -479,7 +479,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Pose la pièce sur l'échiquer. </p>
+<p>Pose la pièce sur l'échiquier. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">piece</td><td></td></tr>
@@ -598,7 +598,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Vérifie si une pièce en saute une autre lors de son mouvement. </p>
+<p>Vérifie si une pièce en saute une autre lors de son mouvement. Le booléen permet de ne pas montrer les affichages de cette fonction lors de son appel dans echec ou mat_ou_pat_ou_egalite. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">orig</td><td></td></tr>

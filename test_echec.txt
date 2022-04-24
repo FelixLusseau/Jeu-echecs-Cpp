@@ -15,16 +15,4 @@ a1a4
 d3d2
 e1d2
 e5e4
-a4a6
-a8b8
-a6a4
-b8a8
-a4a6
-a8b8
-a6a4
-b8a8
-a4a6
-a8b8
-a6a4
-b8a8
 /quit

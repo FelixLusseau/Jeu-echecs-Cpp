@@ -19,6 +19,8 @@ class Jeu {
   public:
     /**
      * @brief Appelle la fonction echec de l'échiquier pour la couleur donnée.
+     * Le booléen permet de ne pas montrer les affichages de cette fonction lors
+     * de son appel dans mat_ou_pat_ou_egalite.
      *
      * @param couleur
      * @param test_echec_et_mat
@@ -28,7 +30,7 @@ class Jeu {
     bool test_echec(Couleur couleur, bool test_echec_et_mat);
 
     /**
-     * @brief Appelle la fonction mat_ou_pat de l'échiquier pour la couleur
+     * @brief Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur
      * donnée.
      *
      * @param couleur
@@ -38,7 +40,7 @@ class Jeu {
     bool test_mat(Couleur couleur);
 
     /**
-     * @brief Appelle la fonction mat_ou_pat de l'échiquier pour la couleur
+     * @brief Appelle la fonction mat_ou_pat_ou_egalite de l'échiquier pour la couleur
      * donnée et lui transmet le compteur de coups sans prise ou déplacement de pion.
      *
      * @param couleur
@@ -46,7 +48,7 @@ class Jeu {
      * @return true
      * @return false
      */
-    bool test_pat(Couleur couleur, int compteur);
+    bool test_pat_ou_egalite(Couleur couleur, int compteur);
 
     /**
      * @brief Récupère un mouvement syntaxiquement valide depuis le terminal dans le main et
@@ -60,7 +62,7 @@ class Jeu {
      * @return true
      * @return false
      */
-    bool jeu(Couleur couleur, string str_orig, string str_dest, string coup_prec, bool *prise_ou_pion);
+    bool execution(Couleur couleur, string str_orig, string str_dest, string coup_prec, bool *prise_ou_pion);
 
     /**
      * @brief Déplace une pièce sans vérification.

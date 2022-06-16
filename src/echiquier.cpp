@@ -595,7 +595,7 @@ string Echiquier::pgn_piece_name(string type, Couleur couleur, bool view_pawn, b
         psymb = "N"; // Knight N
     else if (type == "Fou" && couleur == Blanc)
         psymb = "B"; // Bishop B
-    else if (type == "Reine" && couleur == Blanc)
+    else if (type == "Dame" && couleur == Blanc)
         psymb = "Q"; // Queen Q
     else if (type == "Roi" && couleur == Blanc)
         psymb = "K"; // King K
@@ -615,7 +615,7 @@ string Echiquier::pgn_piece_name(string type, Couleur couleur, bool view_pawn, b
         psymb = "N"; // Knight N
     else if (type == "Fou" && couleur == Noir)
         psymb = "B"; // Bishop B
-    else if (type == "Reine" && couleur == Noir)
+    else if (type == "Dame" && couleur == Noir)
         psymb = "Q"; // Queen Q
     else if (type == "Roi" && couleur == Noir)
         psymb = "K"; // King K

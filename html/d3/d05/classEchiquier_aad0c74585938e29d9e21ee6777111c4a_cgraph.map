@@ -1,5 +1,0 @@
-<map id="Echiquier::get_piece" name="Echiquier::get_piece">
-<area shape="rect" id="node1" title="Donne le pointeur vers la pièce depuis un Square." alt="" coords="5,31,159,57"/>
-<area shape="rect" id="node2" href="$d3/d72/classSquare.html#ac332e3b0296152b7c1abf93ab01e249d" title="Donne la colonne de la pièce." alt="" coords="207,5,361,32"/>
-<area shape="rect" id="node3" href="$d3/d72/classSquare.html#a421fe8f26c71df6fe5a61f63c9fc87c0" title="Donne la ligne de la pièce." alt="" coords="217,56,351,83"/>
-</map>

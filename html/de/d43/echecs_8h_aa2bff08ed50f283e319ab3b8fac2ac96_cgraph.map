@@ -1,4 +1,0 @@
-<map id="petit_roque" name="petit_roque">
-<area shape="rect" id="node1" title="Appelle la fonction petit_roque de la classe Jeu si celui&#45;ci est légal." alt="" coords="5,5,101,32"/>
-<area shape="rect" id="node2" href="$d1/de1/classJeu.html#a994183a8f022751a1b79cbf3ebc0afbe" title="Effectue les vérifications et procède au petit roque." alt="" coords="149,5,273,32"/>
-</map>

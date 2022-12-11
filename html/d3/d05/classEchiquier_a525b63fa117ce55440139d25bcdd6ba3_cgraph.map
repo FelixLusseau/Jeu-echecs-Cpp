@@ -1,7 +1,0 @@
-<map id="Echiquier::verif_saut" name="Echiquier::verif_saut">
-<area shape="rect" id="node1" title="Vérifie si une pièce en saute une autre lors de son mouvement." alt="" coords="5,56,160,83"/>
-<area shape="rect" id="node2" href="$d3/d72/classSquare.html#ac332e3b0296152b7c1abf93ab01e249d" title="Donne la colonne de la pièce." alt="" coords="409,5,564,32"/>
-<area shape="rect" id="node3" href="$d3/d72/classSquare.html#a421fe8f26c71df6fe5a61f63c9fc87c0" title="Donne la ligne de la pièce." alt="" coords="419,56,554,83"/>
-<area shape="rect" id="node4" href="$d3/d05/classEchiquier.html#aad0c74585938e29d9e21ee6777111c4a" title="Donne le pointeur vers la pièce depuis un Square." alt="" coords="208,31,361,57"/>
-<area shape="rect" id="node5" href="$d5/df0/classPiece.html#a41dfa5d1a026c03f7161a7e04daaf741" title="Renvoie le Square de position de l&#39;objet." alt="" coords="227,132,343,159"/>
-</map>

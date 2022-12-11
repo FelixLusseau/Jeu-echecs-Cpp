@@ -1,4 +1,0 @@
-<map id="gestion_fifo" name="gestion_fifo">
-<area shape="rect" id="node1" title="Gère l&#39;historique des échiquiers successifs sous forme canonique dans une file FIFO afin de détecter ..." alt="" coords="5,5,104,32"/>
-<area shape="rect" id="node2" href="$d1/de1/classJeu.html#a3c4481c8ce6ccc5d1f730b9e137af28e" title="Appelle la fonction canonical_position de l&#39;échiquier." alt="" coords="152,5,323,32"/>
-</map>

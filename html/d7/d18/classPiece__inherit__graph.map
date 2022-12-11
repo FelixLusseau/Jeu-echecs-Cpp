@@ -1,9 +1,0 @@
-<map id="Piece" name="Piece">
-<area shape="rect" id="node1" title="Classe virtuelle codant les méthodes et attributs communs à toutes les pièces." alt="" coords="545,5,737,288"/>
-<area shape="rect" id="node2" href="$d1/da1/classCavalier.html" title="Classe codant les attributs et méthodes spécifiques au Cavalier." alt="" coords="5,336,197,443"/>
-<area shape="rect" id="node3" href="$d3/d0a/classDame.html" title="Classe codant les attributs et méthodes spécifiques à la Dame." alt="" coords="221,336,413,443"/>
-<area shape="rect" id="node4" href="$df/d5e/classFou.html" title="Classe codant les attributs et méthodes spécifiques au Fou." alt="" coords="437,336,629,443"/>
-<area shape="rect" id="node5" href="$db/da4/classPion.html" title="Classe codant les attributs et méthodes spécifiques au Pion." alt="" coords="653,336,845,443"/>
-<area shape="rect" id="node6" href="$d5/dac/classRoi.html" title="Classe codant les attributs et méthodes spécifiques au Roi." alt="" coords="869,336,1061,443"/>
-<area shape="rect" id="node7" href="$d5/d1d/classTour.html" title="Classe codant les attributs et méthodes spécifiques à la Tour." alt="" coords="1085,336,1277,443"/>
-</map>

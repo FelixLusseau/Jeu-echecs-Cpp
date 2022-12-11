@@ -1,9 +1,0 @@
-<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$classPiece.html" title="Classe virtuelle codant les méthodes et attributs communs à toutes les pièces." alt="" coords="5,132,63,159"/>
-<area shape="rect" id="node2" href="$classCavalier.html" title="Classe codant les attributs et méthodes spécifiques au Cavalier." alt="" coords="111,5,187,32"/>
-<area shape="rect" id="node3" href="$classDame.html" title="Classe codant les attributs et méthodes spécifiques à la Dame." alt="" coords="118,56,179,83"/>
-<area shape="rect" id="node4" href="$classFou.html" title="Classe codant les attributs et méthodes spécifiques au Fou." alt="" coords="126,107,171,133"/>
-<area shape="rect" id="node5" href="$classPion.html" title="Classe codant les attributs et méthodes spécifiques au Pion." alt="" coords="123,157,174,184"/>
-<area shape="rect" id="node6" href="$classRoi.html" title="Classe codant les attributs et méthodes spécifiques au Roi." alt="" coords="127,208,170,235"/>
-<area shape="rect" id="node7" href="$classTour.html" title="Classe codant les attributs et méthodes spécifiques à la Tour." alt="" coords="124,259,173,285"/>
-</map>

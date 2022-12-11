@@ -1,6 +1,0 @@
-<map id="Piece::set_pos" name="Piece::set_pos">
-<area shape="rect" id="node1" title="Met à jour la position de la pièce lors d&#39;un mouvement." alt="" coords="220,56,335,83"/>
-<area shape="rect" id="node2" href="$d3/d05/classEchiquier.html#a30baff737ba912c8ff7a20194434dbba" title="Déplace la pièce sur l&#39;échiquier et vérifie que le mouvement ne met pas en échec." alt="" coords="18,5,159,32"/>
-<area shape="rect" id="node3" href="$d3/d05/classEchiquier.html#ac58434943ec971bcd069a64b5502869e" title="Teste le mat ou le pat pour la couleur sélectionnée. Le compteur de coups sans prise ou mouvement de ..." alt="" coords="5,56,172,83"/>
-<area shape="rect" id="node4" href="$d3/d05/classEchiquier.html#ab9a009dac3e0758defdbcf40b2c126fa" title="Demande à l&#39;utilisateur quelle pièce il souhaite promouvoir si un pion arrive à la dernière ligne en ..." alt="" coords="10,107,167,133"/>
-</map>

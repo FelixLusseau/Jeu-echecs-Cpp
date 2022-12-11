@@ -1,4 +1,0 @@
-<map id="Echiquier::prise_en_passant" name="Echiquier::prise_en_passant">
-<area shape="rect" id="node1" title="Met à jour l&#39;échiquier en supprimant le pion pris en passant." alt="" coords="5,5,151,47"/>
-<area shape="rect" id="node2" href="$d5/df0/classPiece.html#afc915cc68ed12ef6886666ca7ca77f5a" title="Met à jour le booléen de prise dans la pièce." alt="" coords="199,13,323,39"/>
-</map>

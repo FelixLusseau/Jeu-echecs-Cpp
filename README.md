@@ -1,5 +1,8 @@
 # Jeu d'échecs en C++ de Félix Lusseau
 
+[![C/C++ CI](https://github.com/FelixLusseau/Jeu-echecs-Cpp/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/FelixLusseau/Jeu-echecs-Cpp/actions/workflows/c-cpp.yml)
+[![Author](https://img.shields.io/badge/author-@FelixLusseau-blue)](https://github.com/FelixLusseau)
+
 ## Compilation
 
 Pour compiler le jeu, faire `make` dans le répertoire principal. <br>

@@ -42,11 +42,15 @@ string Tour::get_type() const { return "Tour"; }
 Cavalier::Cavalier(Couleur couleur, string nom, Square position) : Piece(couleur, nom, position) {}
 
 bool Cavalier::est_mouvement_legal(string case_orig, string case_dest) const {
-    if ((case_orig[1] == case_dest[1] + 2 && case_orig[0] == case_dest[0] + 1) || (case_orig[1] == case_dest[1] + 2 && case_orig[0] == case_dest[0] - 1) ||
-        (case_orig[1] == case_dest[1] - 2 && case_orig[0] == case_dest[0] + 1) || (case_orig[1] == case_dest[1] - 2 && case_orig[0] == case_dest[0] - 1))
+    if ((case_orig[1] == case_dest[1] + 2 && case_orig[0] == case_dest[0] + 1) ||
+        (case_orig[1] == case_dest[1] + 2 && case_orig[0] == case_dest[0] - 1) ||
+        (case_orig[1] == case_dest[1] - 2 && case_orig[0] == case_dest[0] + 1) ||
+        (case_orig[1] == case_dest[1] - 2 && case_orig[0] == case_dest[0] - 1))
         return true;
-    else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 2) || (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 2) ||
-             (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 2) || (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 2))
+    else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 2) ||
+             (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 2) ||
+             (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 2) ||
+             (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 2))
         return true;
     else
         return false;
@@ -60,8 +64,10 @@ Fou::Fou(Couleur couleur, string nom, Square position) : Piece(couleur, nom, pos
 
 bool Fou::est_mouvement_legal(string case_orig, string case_dest) const {
     for (int i(1); i < NBCOL; i++) {
-        if ((case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] + i) || (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] + i) ||
-            (case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] - i) || (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] - i))
+        if ((case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] + i) ||
+            (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] + i) ||
+            (case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] - i) ||
+            (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] - i))
             return true;
     }
     return false;
@@ -80,8 +86,10 @@ bool Dame::est_mouvement_legal(string case_orig, string case_dest) const {
         return true;
     else {
         for (int i(1); i < NBCOL; i++) {
-            if ((case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] + i) || (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] + i) ||
-                (case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] - i) || (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] - i))
+            if ((case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] + i) ||
+                (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] + i) ||
+                (case_orig[1] == case_dest[1] + i && case_orig[0] == case_dest[0] - i) ||
+                (case_orig[1] == case_dest[1] - i && case_orig[0] == case_dest[0] - i))
                 return true;
         }
         return false;
@@ -99,8 +107,10 @@ bool Roi::est_mouvement_legal(string case_orig, string case_dest) const {
         return true;
     } else if ((case_orig[1] == case_dest[1] + 1 || case_orig[1] == case_dest[1] - 1) && case_orig[0] == case_dest[0]) {
         return true;
-    } else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 1) || (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 1) ||
-               (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 1) || (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 1)) {
+    } else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 1) ||
+               (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 1) ||
+               (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 1) ||
+               (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 1)) {
         return true;
     } else
         return false;
@@ -116,7 +126,8 @@ bool Pion::est_mouvement_legal(string case_orig, string case_dest) const {
     if (couleur == Blanc) {
         if (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0])
             return true;
-        else if ((case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 1) || (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 1))
+        else if ((case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] - 1) ||
+                 (case_orig[1] == case_dest[1] - 1 && case_orig[0] == case_dest[0] + 1))
             return true;
         else if (case_orig[1] == '2' && case_orig[1] == case_dest[1] - 2 && case_orig[0] == case_dest[0])
             return true;
@@ -125,7 +136,8 @@ bool Pion::est_mouvement_legal(string case_orig, string case_dest) const {
     } else if (couleur == Noir) {
         if (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0])
             return true;
-        else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 1) || (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 1))
+        else if ((case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] - 1) ||
+                 (case_orig[1] == case_dest[1] + 1 && case_orig[0] == case_dest[0] + 1))
             return true;
         else if (case_orig[1] == '7' && case_orig[1] == case_dest[1] + 2 && case_orig[0] == case_dest[0])
             return true;

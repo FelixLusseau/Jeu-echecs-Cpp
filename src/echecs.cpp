@@ -27,7 +27,9 @@ bool saisie_correcte_grandroque(string const &cmd) {
 
 bool grand_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
     if ((couleur == Noir && *roquen) || (couleur == Blanc && *roqueb)) {
-        cerr << endl << ANSI_COLOR_RED << "Impossible de réaliser le grand roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+        cerr << endl
+             << ANSI_COLOR_RED << "Impossible de réaliser le grand roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! "
+             << ANSI_COLOR_RESET << endl;
         return false;
     } else if (monjeu->grand_roque(couleur)) {
         cout << ANSI_COLOR_GREEN << "Grand roque effectué ! " << ANSI_COLOR_RESET << endl;
@@ -39,7 +41,9 @@ bool grand_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
 
 bool petit_roque(Jeu *monjeu, Couleur couleur, bool *roqueb, bool *roquen) {
     if ((couleur == Noir && *roquen) || (couleur == Blanc && *roqueb)) {
-        cerr << endl << ANSI_COLOR_RED << "Impossible de réaliser le petit roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! " << ANSI_COLOR_RESET << endl;
+        cerr << endl
+             << ANSI_COLOR_RED << "Impossible de réaliser le petit roque, un roque a déjà été effectué pour votre couleur, veuillez réessayer ! "
+             << ANSI_COLOR_RESET << endl;
         return false;
     } else if (monjeu->petit_roque(couleur)) {
         cout << ANSI_COLOR_GREEN << "Petit roque effectué ! " << ANSI_COLOR_RESET << endl;

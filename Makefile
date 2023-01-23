@@ -2,6 +2,14 @@ CC = g++ #x86_64-w64-mingw32-g++
 CFLAGS ?= -Wall -Wextra -Werror -g -pipe -pedantic
 LDLIBS ?= 
 
+UNAME_S := $(shell uname -s)
+#ifeq ($(UNAME_S),Linux)
+#    CFLAGS += -D LINUX
+#endif
+ifeq ($(UNAME_S),Darwin)
+    CFLAGS += -D OSX
+endif
+
 INCLUDE_PATH = ./includes
 
 TARGET   = echecs

@@ -4,6 +4,12 @@
 #include "piece.h"
 #include "square.h"
 
+/* #ifndef OSX
+#define SPACE '\u0020'
+#else
+#define SPACE ' '
+#endif */
+
 Echiquier::Echiquier() {
     /* Initialisation des cases à nullptr */
     for (int i = 0; i < NBCOL; i++) {
@@ -542,31 +548,31 @@ void Echiquier::affiche() const {
         for (int j(0); j < NBCOL; j++) {
             if (i % 2 != j % 2) {
                 if (echiquier[i][j] && echiquier[i][j]->get_couleur() == Noir) {
-                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
-                                                                                      // taille police
+                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "   "; // U+0020 est un espace utf-8
+                                                                       // taille police
                     cout << ANSI_COLOR_BLACK << echiquier[i][j]->affiche() << ANSI_COLOR_RESET;
-                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "\u0020\u0020"
+                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "  "
                          << " " << ANSI_COLOR_RESET;
                 } else if (echiquier[i][j] && echiquier[i][j]->get_couleur() == Blanc) {
-                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
-                                                                                      // taille police
+                    cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << "   "; // U+0020 est un espace utf-8
+                                                                       // taille police
                     cout << echiquier[i][j]->affiche();
-                    cout << "\u0020\u0020"
+                    cout << "  "
                          << " " << ANSI_COLOR_RESET;
                 } else
                     cout << ANSI_BACKGROUND_COLOR_GREY_WHITE << space5 << ANSI_COLOR_RESET; // 2 ascii spaces
             } else {
                 if (echiquier[i][j] && echiquier[i][j]->get_couleur() == Noir) {
-                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
-                                                                                       // taille police
+                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "   "; // U+0020 est un espace utf-8
+                                                                        // taille police
                     cout << ANSI_COLOR_BLACK << echiquier[i][j]->affiche() << ANSI_COLOR_RESET;
-                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "\u0020\u0020"
+                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "  "
                          << " " << ANSI_COLOR_RESET;
                 } else if (echiquier[i][j] && echiquier[i][j]->get_couleur() == Blanc) {
-                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "\u0020\u0020\u0020"; // U+0020 est un espace utf-8
-                                                                                       // taille police
+                    cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << "   "; // U+0020 est un espace utf-8
+                                                                        // taille police
                     cout << echiquier[i][j]->affiche();
-                    cout << "\u0020\u0020"
+                    cout << "  "
                          << " " << ANSI_COLOR_RESET;
                 } else
                     cout << ANSI_BACKGROUND_COLOR_DARK_SQUARE << space5 << ANSI_COLOR_RESET; // 2 ascii spaces
